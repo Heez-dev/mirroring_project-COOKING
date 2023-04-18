@@ -3,13 +3,15 @@ import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function SignIn() {
+  const navigate = useNavigate();
+
   return (
     <div className='sign_in'>
       <Link to='/'><div className='sign_logo'></div></Link>
       <form action=""
-        onClick={(e)=>{
+        onSubmit={(e)=>{
           e.preventDefault();
-          navigator('/');
+          navigate('/');
         }}
       >
         <input 

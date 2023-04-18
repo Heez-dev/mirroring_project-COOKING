@@ -34,14 +34,16 @@ export default function SignUpAgreement() {
             navigate('/signup_form');
           }}
         >
-          <input 
-            type="checkbox"
-            name="all"
-            onChange={checkAll}
-            checked={checkList.length === 5? true : false}
-            
-          />
-          <label htmlFor="">네, 모두 동의합니다.</label>
+          <div className='agreement_allagree'>
+            <input 
+              type="checkbox"
+              name="all"
+              onChange={checkAll}
+              checked={checkList.length === 5? true : false}
+              
+            />
+            <label htmlFor="">네, 모두 동의합니다.</label>
+          </div>
           <ul className='agreement_check'>
             <li>
               <input 
@@ -52,7 +54,7 @@ export default function SignUpAgreement() {
                 required
               />
               <label htmlFor="">(필수) 만 14세 이상입니다</label>
-              <button>보기</button>
+              <span>보기</span>
             </li>
             <li>
               <input 
@@ -63,7 +65,7 @@ export default function SignUpAgreement() {
                 required
               />
               <label htmlFor="">(필수) 서비스 이용약관에 동의</label>
-              <button>보기</button>
+              <span>보기</span>
             </li>
             <li>
               <input 
@@ -74,7 +76,7 @@ export default function SignUpAgreement() {
                 required
               />
               <label htmlFor="">(필수) 개인정보 수집 및 이용에 동의</label>
-              <button>보기</button>
+              <span>보기</span>
             </li>
             <li>
               <input 
@@ -84,7 +86,7 @@ export default function SignUpAgreement() {
                 checked={checkList.includes("marketing") ? true :false}
               />
               <label htmlFor="">(선택) 홍보 및 마케팅 이용에 동의</label>
-              <button>보기</button>
+              <span>보기</span>
             </li>
             <li>
               <input 
@@ -94,7 +96,7 @@ export default function SignUpAgreement() {
                 checked={checkList.includes("promotion") ? true :false}
               />
               <label htmlFor="">(선택) 프로모션 정보 수신 동의</label>
-              <button>보기</button>
+              <span>보기</span>
             </li>            
           </ul>
           <input 

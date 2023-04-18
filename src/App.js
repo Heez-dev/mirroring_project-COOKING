@@ -6,7 +6,6 @@ import './css/sign.css'
 
 
 
-import User from './context/User';
 import SignIn from './pages/SignIn';
 import SignUpAgreement from './pages/SignUpAgreement';
 import SignUpForm from './pages/SignUpForm';
@@ -18,7 +17,6 @@ import Class from './pages/Class';
 import Mypage_MyRecipe from './pages/Mypage_MyRecipe';
 import Mypage_RecipeBook from './pages/Mypage_RecipeBook';
 
-import Nav from './components/Nav';
 
 
 function App() {
