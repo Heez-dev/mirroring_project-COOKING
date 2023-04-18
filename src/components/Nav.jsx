@@ -20,7 +20,6 @@ export default function Nav() {
           </NavLink>
           <ul className='nav_sub_list'>
             <li><NavLink to='/signin'>로그인</NavLink></li>
-            <li><NavLink to='/signup_agreement'>회원가입</NavLink></li>
             <li><NavLink to='/mypage_myrecipe'>마이레시피</NavLink></li>
             <li><NavLink to='/mypage_recipebook'>레시피북</NavLink></li>
           </ul>

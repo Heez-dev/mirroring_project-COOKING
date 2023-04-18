@@ -1,19 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 export default function SignIn() {
   return (
     <div className='sign_in'>
       <Link to='/'><div className='sign_logo'></div></Link>
-      <form action="">
+      <form action=""
+        onClick={(e)=>{
+          e.preventDefault();
+          navigator('/');
+        }}
+      >
         <input 
           type="text" 
           placeholder='아이디를 입력해 주세요'
+          required
         />
         <input 
           type="password"
           placeholder='비밀번호를 입력해 주세요'
+          required
         />
         <input 
           type="submit" 
