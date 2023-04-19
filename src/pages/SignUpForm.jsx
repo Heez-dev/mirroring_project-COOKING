@@ -4,11 +4,13 @@ import { Link, useNavigate } from "react-router-dom";
 
 import DataContext from "../context/DataContext";
 
+
 export default function SignUpForm() {
   const navigate = useNavigate();
   const { state, action } = useContext(DataContext);
 
-  // 회원가입 시 사용자 정보를 담을 공간
+
+  // 회원가입 시 입력받은 사용자 정보를 담을 useState
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
   const [userPWCheck, setUserPWCheck] = useState("");
@@ -22,38 +24,38 @@ export default function SignUpForm() {
   const [userAddress, setUserAddress] = useState("");
   const [userPhone, setUserPhone] = useState("");
 
-  // 아이디 정규식
-  const idRegEx = /^[a-z0-9]([-_.]?[a-z0-9]){6,12}$/;
-  // 아이디 중복확인 메소드
-  /*const idCheck = (e) => {
-    // 형식에 맞을 경우, true 값을 리턴함
-    return console.log("아이디 유효성 검사 : ", idRegEx.test(e.target.value));
-  };*/
-  const idCheck = (e) => {
-    setUserID(e.target.value);
-    console.log("아이디 유효성 검사 : ", idRegEx.test(e.target.value));
-  };
 
+  // 정규식을 이용하여 아이디, 패스워드 유효성 검증할 useState
+  const [isValidId, setIsValidId] = useState(false);
+  const [isValidPw, setIsValidPw] = useState(false);
+  const [isValidPwCheck, setIsValidPwCheck] = useState(false);
+  const [idFocustrue, setIdFocustrue] = useState(false);
+  const [pwFocustrue, setPwFocustrue] = useState(false);
+  const [pwCheckFocustrue, setPwCheckFocustrue] = useState(false);
+
+
+  // 아이디 정규식
+  const idRegEx = /^[a-z0-9]{6,12}$/;
   // 패스워드 정규식
   const pwRegEx = /^[A-Za-z0-9]{8,20}$/;
-  // 패스워드 확인 메소드 (비밀번호)
-  const pwCheck = (userpw) => {
-    if (userpw.match(pwRegEx) === null) {
-      // 형식에 맞지 않을 경우 아래 콘솔 출력
-      console.log("비밀번호 형식을 확인해 주세요");
-    } else {
-      // 형식에 맞을 경우 출력
-      console.log("비밀번호 형식이 맞습니다");
-    }
+
+
+  // 아이디 중복확인 메소드
+  const idCheck = (e) => {
+    setUserID(e.target.value);
+    setIsValidId(idRegEx.test(e.target.value));
   };
-  // 패스워드 확인 메소드 (비밀번호 재확인)
-  const pwDoubleCheck = (userpw, pwChk) => {
-    if (userpw !== pwChk) {
-      console.log("비밀번호가 다릅니다");
-    } else {
-      console.log("비밀번호가 같습니다");
-    }
-  };
+  // 패스워드 확인 메소드 
+  const pwCheck = (e) => {
+      setUserPW(e.target.value);
+      setIsValidPw(pwRegEx.test(e.target.value))
+    };
+  // 패스워드 재확인 메소드 
+  const pwDoubleCheck = (e) => {
+    setUserPWCheck(e.target.value);
+    setIsValidPwCheck(userPW === e.target.value);
+  }
+
 
   // 생년월일 입력 시 값을 담을 공간
   let month = new Array(12);
@@ -61,41 +63,38 @@ export default function SignUpForm() {
   let date = new Array(31);
   date.fill(0);
 
-  // 이메일 정규식
-  const emailRegEx =
-    /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/;
-  // 이메일 확인 메소드
-  const emailCheck = (useremail) => {
-    if (useremail.match(emailRegEx) === null) {
-      // 형식에 맞지 않을 경우 아래 콘솔 출력
-      console.log("이메일 형식을 확인해 주세요");
-    } else {
-      console.log("이메일 형식이 맞습니다");
-    }
-  };
 
   // 회원가입 메소드
   const onSignUp = (e) => {
     // submit할 때 새로고침 되는 것 prevenet
     e.preventDefault();
-    // 전달할 user 객체 만들기
-    const newUser = {
-      userID: userID,
-      userPW: userPW,
-      userName: userName,
-      userBirth: `${YYYY}-${MM}-${DD}`,
-      userGender: userGender,
-      userEmail: userEmail,
-      userAddress: userAddress,
-      userPhone: userPhone,
-      login: true,
-    };
-    // 이 user를 set 메소드로 수정
-    action.setUser(newUser);
-    // 메인페이지로 이동
-    navigate("/");
-    console.log(newUser);
+    if ((isValidId===true) && (isValidPw===true) && (isValidPwCheck===true)) {
+      // 전달할 user 객체 만들기
+      const newUser = {
+        userID: userID,
+        userPW: userPW,
+        userName: userName,
+        userBirth: `${YYYY}-${MM}-${DD}`,
+        userGender: userGender,
+        userEmail: userEmail,
+        userAddress: userAddress,
+        userPhone: userPhone,
+        login: true,
+      };
+      // 이 user를 set 메소드로 수정
+      action.setUser(newUser);
+      // 메인페이지로 이동
+      navigate("/");
+      console.log(newUser);
+    } else if (isValidId===false) {
+      alert("아이디를 확인해 주세요");
+    } else if (isValidPw===false) {
+      alert("비밀번호를 확인해 주세요");
+    } else if(isValidPwCheck===false) {
+      alert("비밀번호가 일치하지 않습니다")
+    } 
   };
+
 
   return (
     <div className="sign_up_form">
@@ -110,20 +109,28 @@ export default function SignUpForm() {
             </p>
             <ul>
               <li>
-                <input type="text" required onChange={idCheck} />
+                <input 
+                  type="text" 
+                  required 
+                  onChange={idCheck} 
+                  onFocus={()=>{setIdFocustrue(true)}}
+                  onBlur={()=>{setIdFocustrue(false)}}
+                />
               </li>
               <li>
                 <p className="confirmbtn">중복확인</p>
               </li>
             </ul>
           </div>
-          {idCheck === true ? (
-            <span>아이디를 사용할 수 있습니다</span>
-          ) : (
-            <span>
-              아이디는 영문 소문자, 숫자를 혼합하여 6~12자로 입력해 주세요
-            </span>
-          )}
+          {
+            idFocustrue && (isValidId ? (
+              <span style={{color:"#00A82F"}}>아이디를 사용할 수 있습니다</span>
+            ) : (
+              <span>
+                * 아이디는 영문 소문자, 숫자를 혼합하여 6~12자로 입력해 주세요
+              </span>
+            ))
+          }
           <div className="user_pw">
             <p>
               <label htmlFor="">비밀번호</label>
@@ -132,12 +139,24 @@ export default function SignUpForm() {
               <input
                 type="password"
                 required
-                onChange={(e) => {
-                  setUserPW(e.target.value);
-                }}
+                onChange={pwCheck}
+                onFocus={()=>{setPwFocustrue(true)}}
+                onBlur={()=>{setPwFocustrue(false)}}
               />
-              <div className="padlock"></div>
+              <div 
+                //className="padlock"
+                className={isValidPw? "padlock_on" : "padlock"}
+              ></div>
             </div>
+            {
+              pwFocustrue && (isValidPw ? (
+                <span style={{color:"#00A82F"}}>비밀번호를 사용할 수 있습니다</span>
+              ) : (
+                <span>
+                  * 비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해 주세요
+                </span>
+              ))
+            }
             <p>
               <label htmlFor="">비밀번호 재확인</label>
             </p>
@@ -145,16 +164,22 @@ export default function SignUpForm() {
               <input
                 type="password"
                 required
-                onChange={(e) => {
-                  setUserPWCheck(e.target.value);
-                }}
+                onChange={pwDoubleCheck}
+                onFocus={()=>{setPwCheckFocustrue(true)}}
+                onBlur={()=>{setPwCheckFocustrue(false)}}
               />
-              <div className="padlock"></div>
+              <div 
+                className={isValidPwCheck ? "padlock_on" : "padlock"}
+              ></div>
             </div>
+            {
+              pwCheckFocustrue && (isValidPwCheck ? (
+                <span style={{color:"#00A82F"}}>비밀번호가 일치합니다</span>
+              ) : (
+                <span>비밀번호를 일치하지 않습니다</span>
+              ))
+            }
           </div>
-          <span className="hidden">
-            비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해 주세요
-          </span>
         </div>
         <div className="user_info">
           <p>
@@ -185,12 +210,13 @@ export default function SignUpForm() {
               onChange={(e) => {
                 setMM(e.target.value);
               }}
+              defaultValue={"월"}
             >
-              <option value="" selected>
+              <option value="">
                 월
               </option>
               {month.map((f, i) => (
-                <option value={i + 1} title="월">
+                <option value={i + 1} title="월" key={i}>
                   {i + 1}
                 </option>
               ))}
@@ -201,12 +227,15 @@ export default function SignUpForm() {
               onChange={(e) => {
                 setDD(e.target.value);
               }}
+              defaultValue={"일"}
             >
-              <option value="" selected>
+              <option value="">
                 일
               </option>
               {date.map((f, i) => (
-                <option value={i + 1}>{i + 1}</option>
+                <option value={i + 1} title="일" key={i}>
+                  {i + 1}
+                </option>
               ))}
             </select>
           </div>

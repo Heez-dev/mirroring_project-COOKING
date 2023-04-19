@@ -31,7 +31,7 @@ export default function SignUpAgreement() {
           action="" 
           onSubmit={(e)=>{
             e.preventDefault();
-            navigate('/signup_form');
+            navigate('/signup/form');
           }}
         >
           <div className='agreement_allagree'>

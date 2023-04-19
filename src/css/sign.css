@@ -201,7 +201,7 @@ input[type="password"]:focus {
 .user span,
 .user_info span {
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: gray;
   margin-top: 5px;
   padding: 0 5px;
@@ -227,9 +227,23 @@ input[type="password"]:focus {
   margin-top: 5px;
 }
 
+.user_pw p {
+  margin-top: 20px;
+}
+
 .user_pw .padlock {
   display: inline-block;
   background-image: url(../img/icon/padlock.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  padding: 0 10px;
+}
+
+.user_pw .padlock_on {
+  display: inline-block;
+  background-image: url(../img/icon/padlock_on.png);
   background-position: center;
   background-repeat: no-repeat;
   width: 20px;
@@ -250,7 +264,7 @@ input[type="password"]:focus {
   margin-top: 20px;
 }
 .user_info p {
-  margin-top: 15px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 
@@ -268,6 +282,8 @@ input[type="password"]:focus {
   border: 1px solid #a4a4a4;
   color: gray;
   padding: 0 20px;
+  cursor: pointer;
+  outline: 0;
 }
 
 .user_info select::-ms-expand {

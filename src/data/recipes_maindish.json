@@ -1,6 +1,7 @@
 [
   {
     "title": "까르보나라",
+    "writer": "COOKING",
     "img": [],
     "Lod": 3.5,
     "time": "30분",
@@ -19,6 +20,7 @@
   },
   {
     "title": "소불고기",
+    "writer": "COOKING",
     "img": [],
     "Lod": 4,
     "time": "1시간",
@@ -43,6 +45,7 @@
   },
   {
     "title": "비빔밥",
+    "writer": "COOKING",
     "img": [],
     "Lod": 3.5,
     "time": "45분",
@@ -66,6 +69,7 @@
   },
   {
     "title": "새우국수",
+    "writer": "COOKING",
     "img": [],
     "Lod": 2,
     "time": "20분",
@@ -85,6 +89,7 @@
   },
   {
     "title": "양념 닭 구이",
+    "writer": "COOKING",
     "img": [],
     "Lod": 4,
     "time": "1시간 45분",
@@ -113,6 +118,7 @@
   },
   {
     "title": "버터 치킨 카레",
+    "writer": "COOKING",
     "img": [],
     "Lod": 2,
     "time": "50분",

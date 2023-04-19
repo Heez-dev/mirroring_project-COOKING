@@ -4,6 +4,7 @@ import { useState } from "react";
 const DataContext = React.createContext("");
 
 const DataProvider = ({ children }) => {
+  // User
   const [user, setUser] = useState({
     userID: "",
     userPW: "",
