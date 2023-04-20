@@ -16,9 +16,6 @@ export default function Main() {
         <BestRecipe/>
         <MainEvents/>
       </main>
-      <footer>
-        <Footer/>
-      </footer>
     </div>
   )
 }

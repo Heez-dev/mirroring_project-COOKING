@@ -1,0 +1,28 @@
+/* 베스트레시피 */
+
+
+/* 레시피 카테고리 바 */
+.recipe_menu_bar {
+  display: flex;
+  width: 700px;
+  height: 50px;
+  align-items: center;
+  margin: auto;
+  background-color: #EDDED7;
+  border-radius: 50px;
+}
+
+.recipe_menu_inactive  {
+  color: #816759;
+  padding: 17px 44.516px;
+}
+
+.recipe_menu_active {
+  background-color: #F27E65;
+  border-radius: 50px;
+  color: #F2EEEC;
+  padding: 17px 44.516px;
+  transition: all 0.3s;
+}
+
+

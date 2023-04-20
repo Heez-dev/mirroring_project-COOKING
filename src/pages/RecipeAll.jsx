@@ -1,7 +1,11 @@
 import React from 'react'
+import AllRecipeComp from '../components/AllRecipeComp'
 
 export default function RecipeAll() {
   return (
-    <div>RecipeAll</div>
+    <div>
+      <AllRecipeComp/>
+    </div>
   )
 }
+

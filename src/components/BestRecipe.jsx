@@ -13,7 +13,7 @@ export default function BestRecipe() {
                 card image
               </div>
               <h4 className='best_ranking'>01</h4>
-              <button className='best_heart_btn'>하트아이콘</button>
+              <span className='best_heart_icon'>하트아이콘</span>
               <h4 className='best_title'>메뉴이름</h4>
             </div>
           </div>

@@ -9,7 +9,7 @@ import '../css/nav.css'
 import DataContext from '../context/DataContext'
 
 
-export default function Nav() {
+export default function NavBar() {
   const {state, action} = useContext(DataContext)
 
   const logout = () => {
@@ -19,6 +19,7 @@ export default function Nav() {
   return (
     <nav className='nav'>
       <NavLink to='/'><div className='logo'></div></NavLink>
+
       <ul className='nav_list_wrap'>
         <li><NavLink to='/recipe'><div className='nav_list'>레시피</div></NavLink></li>
         <li><NavLink to='/town'><div className='nav_list'>우리동네</div></NavLink></li>
