@@ -17,7 +17,7 @@ export default function RecipeMenuBar() {
           to="/recipe/main" 
           className={({isActive}) => isActive ? "recipe_menu_active" : "recipe_menu_inactive"}
         >
-          메인요리
+          메인음식
         </NavLink>
       </li>
       <li className='recipe_menu_list'>
@@ -25,7 +25,7 @@ export default function RecipeMenuBar() {
           to="/recipe/side" 
           className={({isActive}) => isActive ? "recipe_menu_active" : "recipe_menu_inactive"}
         >
-          밑반찬
+          곁들임음식
         </NavLink>
       </li>
       <li className='recipe_menu_list'>

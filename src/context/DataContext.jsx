@@ -15,11 +15,12 @@ const DataProvider = ({ children }) => {
     userAddress: "",
     userPhone: "",
     login: false,
+    scraplist: []
   });
 
   const value = {
-    state: { user },
-    action: { setUser },
+    userstate: { user },
+    useraction: { setUser },
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

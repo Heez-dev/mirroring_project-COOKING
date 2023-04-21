@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import RandomRecipe from '../components/RandomRecipe'
 import SearchWrite from '../components/SearchWrite'
 import BestRecipe from '../components/BestRecipe'
 import MainEvents from '../components/MainEvents'
-import Footer from '../components/Footer'
 
+
+import DataContext from '../context/DataContext'
 
 
 export default function Main() {
+  const {userstate} = useContext(DataContext);
+  console.log(userstate.login)
   return (
     <div>
       <main>

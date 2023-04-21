@@ -9,7 +9,7 @@ import DataContext from '../context/DataContext';
 export default function SignIn() {
   const navigate = useNavigate();
 
-  const {state,action} = useContext(DataContext);
+  const {userstate, useraction} = useContext(DataContext);
 
   const [userID, setUserID] = useState("");
   const [userPW, setUserPW] = useState("");
@@ -17,11 +17,12 @@ export default function SignIn() {
   const onSignIn = (e) => {
     e.preventDefault();
     const newUser = {
+      ...userstate.user,
       userID: userID,
       userPW: userPW,
       login: true
     };
-    action.setUser(newUser);
+    useraction.setUser(newUser);
     navigate('/');
     console.log(`아이디 : ${newUser.userID}, 비밀번호 : ${newUser.userPW}, 로그인 : ${newUser.login}`);
   }

@@ -1,5 +1,9 @@
 import React, { useContext } from 'react'
 import RecipeContext from '../context/RecipeContext';
+import { Link } from 'react-router-dom';
+
+
+import ScrapBtnComp from './ScrapBtnComp';
 
 
 export default function AllRecipeComp() {
@@ -11,17 +15,19 @@ export default function AllRecipeComp() {
     <div className='recipecards_wrap'>
       {
         state.recipelist.map((recipelist, recipeid) => (
-          <div key={recipeid} className='recipecard'>
-            <div className='recipecard_img'>
-              이미지
-              <span className='recipecard_heart_icon'>하트아이콘</span>
+          <Link key={recipeid} className='recipecard'>
+            <div className='recipecard_img_wrap'>
+                <div style={{backgroundImage: `url(${recipelist.img})`}} className='recipecard_img'></div>
             </div>
-            <h5 className='recipecard_title'>{recipelist.title}</h5>
+            <div className='recipecard_title_wrap'>
+              <h5 className='recipecard_title'>{recipelist.title}</h5>
+              <ScrapBtnComp recipe={recipelist}/>
+            </div>
             <div className='recipecard_time_wrap'>
-              <div className='recipecard_time_icon'>icon</div>
+              <div className='recipecard_time_icon'></div>
               <span className='recipecard_time'>{recipelist.time}</span>
             </div>
-          </div>
+          </Link>
         ))
       }
     </div>

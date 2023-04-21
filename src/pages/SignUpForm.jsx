@@ -7,7 +7,7 @@ import DataContext from "../context/DataContext";
 
 export default function SignUpForm() {
   const navigate = useNavigate();
-  const { state, action } = useContext(DataContext);
+  const { userstate, useraction } = useContext(DataContext);
 
 
   // 회원가입 시 입력받은 사용자 정보를 담을 useState
@@ -82,7 +82,7 @@ export default function SignUpForm() {
         login: true,
       };
       // 이 user를 set 메소드로 수정
-      action.setUser(newUser);
+      useraction.setUser(newUser);
       // 메인페이지로 이동
       navigate("/");
       console.log(newUser);

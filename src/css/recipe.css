@@ -2,14 +2,21 @@
 
 
 /* 레시피 카테고리 바 */
+.recipecards_wrap{
+  display: grid;
+}
+.recipecard {
+  width: 250px;
+}
 .recipe_menu_bar {
   display: flex;
-  width: 700px;
+  width: 702.2px;
   height: 50px;
   align-items: center;
   margin: auto;
   background-color: #EDDED7;
   border-radius: 50px;
+  font-size: 0.9rem;
 }
 
 .recipe_menu_inactive  {
@@ -26,3 +33,85 @@
 }
 
 
+/* 카테고리별 레시피카드 */
+.recipecards_wrap {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 800px;
+  height: 765px;
+  margin: 0 auto;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.recipecard {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.recipecard_img_wrap {
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.recipecard_img {
+  width: 250px;
+  height: 250px;
+  background-position: center;
+  background-size: cover;
+  transition: all 0.5s;
+}
+
+.recipecard_img:hover {
+  filter: drop-shadow();
+  transform: scale(1.1);
+  transition: all 0.5s;
+  
+}
+
+.recipecard_title_wrap {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8px 3px 8px;
+}
+
+.recipecard_title {
+  font-size: 1.3rem;
+  padding-top: 3.5px;
+}
+
+.recipecard_heart_icon {
+  background-image: url("../img/icon/scrap.png");
+  width: 20px;
+  height: 17.5px;
+}
+
+.heart_icon_on {
+  background-image: url("../img/icon/scrap_on.png");
+  width: 20px;
+  height: 17.5px;
+}
+
+.recipecard_time_wrap {
+  box-sizing: border-box;
+  display: flex;
+  font-size: 0.8rem;
+  padding: 0 8px;
+}
+
+.recipecard_time_icon {
+  background-image: url('../img/icon/clock.png');
+  width: 12px;
+  height: 15px;
+}
+
+.recipecard_time {
+  color: #9C9C9C;
+  padding-top: 2.5px;
+  padding-left: 3px;
+}

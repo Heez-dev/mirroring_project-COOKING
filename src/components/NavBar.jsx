@@ -10,10 +10,10 @@ import DataContext from '../context/DataContext'
 
 
 export default function NavBar() {
-  const {state, action} = useContext(DataContext)
+  const {userstate, useraction} = useContext(DataContext)
 
   const logout = () => {
-    action.setUser.login(false);
+    useraction.setUser.login(false);
   }
 
   return (
@@ -25,7 +25,7 @@ export default function NavBar() {
         <li><NavLink to='/town'><div className='nav_list'>우리동네</div></NavLink></li>
         <li><NavLink to='/class'><div className='nav_list'>클래스</div></NavLink></li>
         <li className='user_icon_wrap'>
-          <NavLink to={`/mypage/myrecipe/${state.user.userID}`}>
+          <NavLink to={`/mypage/myrecipe/${userstate.user.userID}`}>
             <div className='user_icon'>
               <div></div>
             </div>
@@ -33,14 +33,14 @@ export default function NavBar() {
           <ul className='nav_sub_list'>
             <li>
               {
-                state.user.login
+                userstate.user.login
                 ? (<NavLink to='/' onClick={logout}>로그아웃</NavLink>)
                 : (<NavLink to='/signin'>로그인</NavLink>)
               }
             </li>
-            <li><NavLink to={`/mypage/${state.user.userID}`}>회원정보</NavLink></li>
-            <li><NavLink to={`/mypage/myrecipe/${state.user.userID}`}>마이레시피</NavLink></li>
-            <li><NavLink to={`/mypage/recipebook/${state.user.userID}`}>레시피북</NavLink></li>
+            <li><NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink></li>
+            <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`}>마이레시피</NavLink></li>
+            <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`}>레시피북</NavLink></li>
           </ul>
         </li>
       </ul>
