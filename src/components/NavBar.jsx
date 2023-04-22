@@ -21,7 +21,7 @@ export default function NavBar() {
       <NavLink to='/'><div className='logo'></div></NavLink>
 
       <ul className='nav_list_wrap'>
-        <li><NavLink to='/recipe'><div className='nav_list'>레시피</div></NavLink></li>
+        <li><NavLink to='/recipe/all'><div className='nav_list'>레시피</div></NavLink></li>
         <li><NavLink to='/town'><div className='nav_list'>우리동네</div></NavLink></li>
         <li><NavLink to='/class'><div className='nav_list'>클래스</div></NavLink></li>
         <li className='user_icon_wrap'>

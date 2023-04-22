@@ -16,6 +16,7 @@ import RecipeMain from "./pages/RecipeMain";
 import RecipeSide from "./pages/RecipeSide";
 import RecipeSoup from "./pages/RecipeSoup";
 import RecipeDessert from "./pages/RecipeDessert";
+import RecipeView from "./pages/RecipeView";
 import Town from "./pages/Town";
 import Class from "./pages/Class";
 import User from "./pages/User";
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/recipe/soup" element={<RecipeSoup/>}/>
                 <Route path="/recipe/dessert" element={<RecipeDessert/>}/>
               </Route>
+              <Route path="/recipe/:recipeid/:category/:title" element={<RecipeView/>}/>
 
               <Route path="/town" element={<Town />} />
               <Route path="/class" element={<Class />} />

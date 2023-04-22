@@ -8,7 +8,7 @@ const RecipeProvider = ({ children }) => {
   const [recipelist, setRecipelist] = useState([
     {
       "recipeid": 1,
-      "category": "곁들임음식",
+      "category": "side",
       "title": "배추겉절이 김치",
       "writer": "COOKING",
       "writetime": "2023-04-01",
@@ -22,7 +22,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 2,
-      "category": "간식",
+      "category": "dessert",
       "title": "팝콘",
       "writer": "jun",
       "writetime": "2023-04-01",
@@ -36,7 +36,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 3,
-      "category": "메인음식",
+      "category": "main",
       "title": "까르보나라",
       "writer": "COOKING",
       "writetime": "2023-04-02",
@@ -50,7 +50,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 4,
-      "category": "메인음식",
+      "category": "main",
       "title": "새우국수",
       "writer": "Master",
       "writetime": "2023-04-03",
@@ -64,7 +64,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 5,
-      "category": "메인음식",
+      "category": "main",
       "title": "버터 치킨 카레",
       "writer": "COOKING",
       "writetime": "2023-04-05",
@@ -78,7 +78,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 6,
-      "category": "메인음식",
+      "category": "main",
       "title": "비빔밥",
       "writer": "jun",
       "writetime": "2023-04-07",
@@ -92,7 +92,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 7,
-      "category": "곁들임음식",
+      "category": "side",
       "title": "미트볼",
       "writer": "Master",
       "writetime": "2023-04-07",
@@ -106,7 +106,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 8,
-      "category": "간식",
+      "category": "dessert",
       "title": "와플",
       "writer": "베이킹조아",
       "writetime": "2023-04-09",
@@ -120,7 +120,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 9,
-      "category": "메인음식",
+      "category": "main",
       "title": "소불고기",
       "writer": "COOKING",
       "writetime": "2023-04-11",
@@ -134,7 +134,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 10,
-      "category": "국/찌개",
+      "category": "soup",
       "title": "토마토 스튜",
       "writer": "COOKING",
       "writetime": "2023-04-12",
@@ -148,7 +148,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 11,
-      "category": "국/찌개",
+      "category": "soup",
       "title": "해물 짬뽕탕",
       "writer": "Master",
       "writetime": "2023-04-13",
@@ -162,7 +162,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 12,
-      "category": "곁들임",
+      "category": "side",
       "title": "피클",
       "writer": "jun",
       "writetime": "2023-04-13",
@@ -176,7 +176,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 13,
-      "category": "국/찌개",
+      "category": "soup",
       "title": "비프 부르기뇽",
       "writer": "COOKING",
       "writetime": "2023-04-14",
@@ -190,7 +190,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 14,
-      "category": "간식",
+      "category": "dessert",
       "title": "초코머핀",
       "writer": "베이킹조아",
       "writetime": "2023-04-15",
@@ -204,7 +204,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 15,
-      "category": "메인음식",
+      "category": "main",
       "title": "양념 닭 구이",
       "writer": "COOKING",
       "writetime": "2023-04-17",
@@ -218,7 +218,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 16,
-      "category": "간식",
+      "category": "dessert",
       "title": "블루베리 치즈 케이크",
       "writer": "베이킹조아",
       "writetime": "2023-04-17",
@@ -232,7 +232,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 17,
-      "category": "간식",
+      "category": "dessert",
       "title": "키위 요거트볼",
       "writer": "jun",
       "writetime": "2023-04-18",
@@ -246,7 +246,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 18,
-      "category": "국/찌개",
+      "category": "soup",
       "title": "단호박 스프",
       "writer": "COOKING",
       "writetime": "2023-04-20",
@@ -260,7 +260,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 19,
-      "category": "곁들임음식",
+      "category": "side",
       "title": "알감자 버터 구이",
       "writer": "COOKING",
       "writetime": "2023-04-20",
@@ -274,7 +274,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 20,
-      "category": "간식",
+      "category": "dessert",
       "title": "팥빙수",
       "writer": "jun",
       "writetime": "2023-04-21",
@@ -288,7 +288,7 @@ const RecipeProvider = ({ children }) => {
     },
     {
       "recipeid": 21,
-      "category": "곁들임음식",
+      "category": "side",
       "title": "고기만두",
       "writer": "Master",
       "writetime": "2023-04-21",

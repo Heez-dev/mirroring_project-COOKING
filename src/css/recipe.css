@@ -41,13 +41,15 @@
   width: 800px;
   height: 765px;
   margin: 0 auto;
-  padding: 50px 0;
+  padding-top: 50px;
+  padding-bottom: 20px;
   overflow: hidden;
 }
 
 .recipecard {
   margin-top: 20px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .recipecard_img_wrap {
@@ -65,8 +67,7 @@
   transition: all 0.5s;
 }
 
-.recipecard_img:hover {
-  filter: drop-shadow();
+.recipecard:hover .recipecard_img{
   transform: scale(1.1);
   transition: all 0.5s;
   
@@ -114,4 +115,63 @@
   color: #9C9C9C;
   padding-top: 2.5px;
   padding-left: 3px;
+}
+
+.recipecards_pagebtn_wrap {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.recipecards_pagebtn_wrap .prevbtn {
+  appearance: none;
+  border: 0;
+  background-color: inherit;
+  background-image: url("../img/icon/prevbtn.png");
+  width: 13px;
+  height: 13px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.recipecards_pagebtn_wrap .nextbtn {
+  appearance: none;
+  border: 0;
+  background-color: inherit;
+  background-image: url("../img/icon/nextbtn.png");
+  width: 13px;
+  height: 13px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.currentpagebtnslide {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.recipecards_pagebtn {
+  box-sizing: border-box;
+  margin: 0 5px;
+  appearance: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  background-color: #D9D9D9;
+  color: #303030;
+  cursor: pointer;
+}
+
+.recipecards_pagebtn_on {
+  box-sizing: border-box;
+  margin: 0 5px;
+  appearance: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: 0;
+  color: #FBF2F2;
+  background-color: #303030;
 }
