@@ -25,6 +25,8 @@ import Mypage_RecipeBook from "./pages/Mypage_RecipeBook";
 
 import { DataProvider } from "./context/DataContext";
 import { RecipeProvider } from "./context/RecipeContext";
+import RecipeWriteForm from "./pages/RecipeWriteForm";
+import RecipeEditForm from "./pages/RecipeEditForm";
 
 
 
@@ -43,6 +45,7 @@ function App() {
 
             <Route element={<Layout />}>
               <Route path="/" element={<Main />} />
+              <Route path="/recipe/write" element={<RecipeWriteForm/>}/>
               
               <Route path="/recipe" element={<Recipe/>}>
                 <Route path="/recipe/all" element={<RecipeAll/>}/>
@@ -52,6 +55,7 @@ function App() {
                 <Route path="/recipe/dessert" element={<RecipeDessert/>}/>
               </Route>
               <Route path="/recipe/:recipeid/:category/:title" element={<RecipeView/>}/>
+              <Route path="/recipe/:recipeid/:category/:title/edit" element={<RecipeEditForm/>}/>
 
               <Route path="/town" element={<Town />} />
               <Route path="/class" element={<Class />} />

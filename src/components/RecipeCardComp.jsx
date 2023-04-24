@@ -6,18 +6,22 @@ import { useNavigate } from 'react-router-dom'
 
 export default function RecipeCardComp({recipelist}) {
   const navigate = useNavigate();
-  const onRecipeView = (recipelist) => {
+
+  const onRecipeView = () => {
     navigate(`/recipe/${recipelist.recipeid}/${recipelist.category}/${recipelist.title}`)
   }
 
   return (
-    <div key={recipelist.recipeid} className='recipecard' onClick={()=>{onRecipeView(recipelist)}}>
+    <div key={recipelist.recipeid} className='recipecard'>
       <div>
           <div className='recipecard_img_wrap'>
             <div 
               style={{
                 backgroundImage: `url(${recipelist.img})`}} 
               className='recipecard_img'
+
+              onClick={(e)=>{onRecipeView(recipelist.recipeid)}}
+
             ></div>
           </div>
           <div className='recipecard_title_wrap'>

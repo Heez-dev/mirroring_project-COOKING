@@ -3,6 +3,9 @@ import { useState } from "react";
 
 const RecipeContext = React.createContext("");
 
+let commentid = 2;
+let good = 0;
+
 const RecipeProvider = ({ children }) => {
   // 모든 레시피
   const [recipelist, setRecipelist] = useState([
@@ -10,7 +13,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 1,
       "category": "side",
       "title": "배추겉절이 김치",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-01",
       "img": "https://images.unsplash.com/photo-1644131447600-dcf173a37728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "Lod": "중급",
@@ -24,7 +27,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 2,
       "category": "dessert",
       "title": "팝콘",
-      "writer": "jun",
+      "userID": "jun",
       "writetime": "2023-04-01",
       "img": "https://images.unsplash.com/photo-1585647347129-7aebb8689a78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "초급",
@@ -38,21 +41,40 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 3,
       "category": "main",
       "title": "까르보나라",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-02",
       "img": "https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80",
-      "Lod": 3,
+      "Lod": "중급",
       "time": "30분",
       "servings": "2인분",
       "ingredient": "마늘 4개, 양파 1/4개, 양송이버섯 6개, 베이컨 2~3장, 생크림 225ml, 우유 조금, 달걀 노른자 1개, 슬라이스 치즈 1장",
-      "content": "",
+      "content": ["Step 1. 재료 준비",
+      "1. 양송이 버섯과 양파, 마늘 얇게 썰기",
+      "2. 베이컨 먹기 좋은 크기로 썰기",
+      
+      "Step 2. 면 삶기",
+      "1. 물에 소금 1큰술 넣고 면수 끓이기",
+      "2. 스파게티 면을 넣고 8~9분 정도 삶기",
+      "* 취향껏 더 삶거나 덜 삶기",
+      "3. 다 삶아진 면은 올리브유로 버무려서 면끼리 엉겨붙지 않게 하기",
+      
+      "Step 3. 까르보나라 만들기",
+      "1. 달군 팬에 올리브유를 두르고 마늘 볶기",
+      "2. 마늘향이 올라오면 양파와 양송이 버섯을 넣고 볶기",
+      "3. 다 볶아진 마늘, 양파, 양송이 버섯을 그릇에 담아놓기",
+      "4. 채소를 볶은 팬에 베이컨 볶기",
+      "5. 달걀 노른자와 생크림을 잘 섞어주기",
+      "6. 베이컨이 익으면 미리 볶아서 따로 담아 놓은 채소들을 넣고 살짝 볶아준 뒤 생크림과 달걀 노른자 섞은 것을 넣기",
+      "7. 보글보글 끓어오르면 슬라이스 치즈와 면을 넣고 빠르게 섞기",
+      "8. 취향에 따라 소금,후추로 간을 더하기",
+      "9. 마무리로 파슬리 뿌리기"],
       "scrap" : 50
     },
     {
       "recipeid": 4,
       "category": "main",
       "title": "새우국수",
-      "writer": "Master",
+      "userID": "Master",
       "writetime": "2023-04-03",
       "img": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
       "Lod": "초급",
@@ -66,7 +88,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 5,
       "category": "main",
       "title": "버터 치킨 카레",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-05",
       "img": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
       "Lod": "중급",
@@ -80,7 +102,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 6,
       "category": "main",
       "title": "비빔밥",
-      "writer": "jun",
+      "userID": "jun",
       "writetime": "2023-04-07",
       "img": "https://images.unsplash.com/photo-1590301157890-4810ed352733?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
       "Lod": "중급",
@@ -94,7 +116,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 7,
       "category": "side",
       "title": "미트볼",
-      "writer": "Master",
+      "userID": "Master",
       "writetime": "2023-04-07",
       "img": "https://images.unsplash.com/photo-1529042410759-befb1204b468?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       "Lod": "중급" ,
@@ -108,7 +130,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 8,
       "category": "dessert",
       "title": "와플",
-      "writer": "베이킹조아",
+      "userID": "베이킹조아",
       "writetime": "2023-04-09",
       "img": "https://images.unsplash.com/photo-1600184430626-1dd6087315d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=706&q=80",
       "Lod": "초급" ,
@@ -122,7 +144,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 9,
       "category": "main",
       "title": "소불고기",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-11",
       "img": "https://images.unsplash.com/photo-1656250962056-ccc3714a9d25?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       "Lod": "중급",
@@ -136,7 +158,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 10,
       "category": "soup",
       "title": "토마토 스튜",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-12",
       "img": "https://images.unsplash.com/photo-1603105037880-880cd4edfb0d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "중급" ,
@@ -150,7 +172,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 11,
       "category": "soup",
       "title": "해물 짬뽕탕",
-      "writer": "Master",
+      "userID": "Master",
       "writetime": "2023-04-13",
       "img": "https://images.unsplash.com/photo-1571809839227-b2ac3d261257?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
       "Lod": "중급" ,
@@ -164,7 +186,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 12,
       "category": "side",
       "title": "피클",
-      "writer": "jun",
+      "userID": "jun",
       "writetime": "2023-04-13",
       "img": "https://images.unsplash.com/photo-1562346816-9d0bdd559ec1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
       "Lod": "초급" ,
@@ -178,7 +200,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 13,
       "category": "soup",
       "title": "비프 부르기뇽",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-14",
       "img": "https://images.unsplash.com/photo-1608500218919-0df503673764?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "중급" ,
@@ -192,7 +214,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 14,
       "category": "dessert",
       "title": "초코머핀",
-      "writer": "베이킹조아",
+      "userID": "베이킹조아",
       "writetime": "2023-04-15",
       "img": "https://images.unsplash.com/photo-1616151030851-644f0f96c1a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
       "Lod": "초급" ,
@@ -206,7 +228,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 15,
       "category": "main",
       "title": "양념 닭 구이",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-17",
       "img": "https://images.unsplash.com/photo-1527477396000-e27163b481c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1153&q=80",
       "Lod": "중급" ,
@@ -220,7 +242,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 16,
       "category": "dessert",
       "title": "블루베리 치즈 케이크",
-      "writer": "베이킹조아",
+      "userID": "베이킹조아",
       "writetime": "2023-04-17",
       "img": "https://images.unsplash.com/photo-1567327613485-fbc7bf196198?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "중급" ,
@@ -234,7 +256,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 17,
       "category": "dessert",
       "title": "키위 요거트볼",
-      "writer": "jun",
+      "userID": "jun",
       "writetime": "2023-04-18",
       "img": "https://images.unsplash.com/photo-1611575609000-9a77fd26b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "초급" ,
@@ -248,7 +270,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 18,
       "category": "soup",
       "title": "단호박 스프",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-20",
       "img": "https://images.unsplash.com/photo-1604152135912-04a022e23696?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "초급" ,
@@ -262,7 +284,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 19,
       "category": "side",
       "title": "알감자 버터 구이",
-      "writer": "COOKING",
+      "userID": "COOKING",
       "writetime": "2023-04-20",
       "img": "https://images.unsplash.com/photo-1631898039984-fd5f61fe8732?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "Lod": "초급" ,
@@ -276,7 +298,7 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 20,
       "category": "dessert",
       "title": "팥빙수",
-      "writer": "jun",
+      "userID": "jun",
       "writetime": "2023-04-21",
       "img": "https://images.unsplash.com/photo-1631148625910-e48b149a64d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
       "Lod": "초급" ,
@@ -290,10 +312,10 @@ const RecipeProvider = ({ children }) => {
       "recipeid": 21,
       "category": "side",
       "title": "고기만두",
-      "writer": "Master",
+      "userID": "Master",
       "writetime": "2023-04-21",
       "img": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-      "Lod": 3,
+      "Lod": "중급",
       "time": "1시간",
       "servings": "5인분",
       "ingredient": "두부 1/2모, 부추 70g, 대파 80g, 다진마늘 1스푼, 배추 70g, 다진생강 1/4스푼, 다진돼지고기 360g, 당면 100g, 숙주 250g, 만두피 40~50장, 진간장 3스푼, 꽃소금 1/3스푼, 황설탕 1/2스푼, 굴소스 3스푼, 참기름 3스푼, MSG 1.2스푼, 후춧가루",
@@ -302,9 +324,29 @@ const RecipeProvider = ({ children }) => {
     }
   ]);
 
+  // 레시피 댓글
+  const [commentlist, setCommentlist] = useState([
+    {
+      "commentid": 1,
+      "recipeid": 3,
+      "userID" : "yammy",
+      "comment" : "맛있어보여요!",
+      "commentdate" : "2023-04-24",
+      "good" : 5
+    }
+  ]);
+
+  const commentidCount = () => {
+    commentid++;
+  }
+
+  const goodCount = () => {
+    good++;
+  }
+
   const value = {
-    state: {recipelist},
-    action: {setRecipelist}
+    state: {recipelist, commentlist, commentid, good},
+    action: {setRecipelist, setCommentlist, commentidCount, goodCount}
   }
 
   return <RecipeContext.Provider value={value}>{children}</RecipeContext.Provider>

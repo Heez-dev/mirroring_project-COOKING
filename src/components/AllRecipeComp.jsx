@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AllRecipeComp() {
   const { state } = useContext(RecipeContext);
+  const recipelist = state.recipelist
 
   const itemsPerPage = 6; // 한 페이지당 보여줄 아이템의 개수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
@@ -13,7 +14,7 @@ export default function AllRecipeComp() {
   const startIndex = endIndex - itemsPerPage;
 
   // recipeid 기준으로 recipelist 배열을 역순으로 정렬
-  const sortedRecipelist = [...state.recipelist].sort((a, b) => b.recipeid - a.recipeid);
+  const sortedRecipelist = [...recipelist].sort((a, b) => b.recipeid - a.recipeid);
 
   // 현재 페이지에 해당하는 배열만 추출하고 출력
   const currentItems = sortedRecipelist.slice(startIndex, endIndex);
