@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-import BestRecipe from '../components/BestRecipe'
+import BestRecipeComp from '../components/BestRecipeComp'
 import RecipeMenuBar from '../components/RecipeMenuBar'
 
 
@@ -10,7 +10,7 @@ export default function Recipe() {
   return (
     <div>
       <main>
-        <BestRecipe/>
+        <BestRecipeComp/>
         <RecipeMenuBar/>
         <Outlet/>
       </main>

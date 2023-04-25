@@ -4,7 +4,7 @@ import { useState } from "react";
 const RecipeContext = React.createContext("");
 
 let commentid = 2;
-let good = 0;
+let like = 0;
 
 const RecipeProvider = ({ children }) => {
   // 모든 레시피
@@ -20,21 +20,22 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간",
       "servings": "",
       "ingredient": "배추 2포기, 굵은소금 2컵, 물 6컵, 양파 1개. 당근 1/3개, 부추 한 주먹, 고춧가루 1컵, 멸치액젓 6스푼, 새우젓 2스푼, 설탕 3스푼, 매실액 3스푼, 다진마늘 6스푼, 다진생강 1스푼",
-      "content": "",
+      "content": [],
       "scrap" : 80
     },
     {
       "recipeid": 2,
       "category": "dessert",
+      "subtitle" : "진한 풍미의 고소한",
       "title": "팝콘",
       "userID": "jun",
       "writetime": "2023-04-01",
       "img": "https://images.unsplash.com/photo-1585647347129-7aebb8689a78?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "초급",
       "time": "20분",
-      "servings": "",
-      "ingredient": "1인분",
-      "content": "팝콘 옥수수 40g, 버터 또는 식용유, 소금",
+      "servings": "1인분",
+      "ingredient": "팝콘 옥수수 40g, 버터 또는 식용유, 소금",
+      "content": [],
       "scrap" : 100
     },
     {
@@ -68,7 +69,7 @@ const RecipeProvider = ({ children }) => {
       "7. 보글보글 끓어오르면 슬라이스 치즈와 면을 넣고 빠르게 섞기",
       "8. 취향에 따라 소금,후추로 간을 더하기",
       "9. 마무리로 파슬리 뿌리기"],
-      "scrap" : 50
+      "scrap" : 120
     },
     {
       "recipeid": 4,
@@ -81,7 +82,7 @@ const RecipeProvider = ({ children }) => {
       "time": "20분",
       "servings": "2인분",
       "ingredient": "면, 멸치육수팩 1개, 중간 크기 이상 새우 8~10마리, 계란 2개, 다진마늘 1스푼, 국간장 1스푼, 참기름 1스푼, 참치액 1스푼, 소금",
-      "content": "",
+      "content": [],
       "scrap" : 45
     },
     {
@@ -95,7 +96,7 @@ const RecipeProvider = ({ children }) => {
       "time": "50분",
       "servings": "2인분",
       "ingredient": "닭 다리살 400g, 양파 1/2개, 홀토마토 1/2캔(200g), 시판 고체형 카레 2인분, 치킨육수 또는 물 2컵, 우유 1/2컵, 생크림 1/2컵, 땅콩버터 1.5스푼, 버터 3스푼, 밥 2인분, 맛술 1스푼, 다진마늘 1티스푼, 생강가루 한꼬집, 소금, 후춧가루",
-      "content": "",
+      "content": [],
       "scrap" : 42
     },
     {
@@ -109,7 +110,7 @@ const RecipeProvider = ({ children }) => {
       "time": "45분",
       "servings": "4인분",
       "ingredient": "숙주 270g, 시금치 200g, 당근 200g, 오이 1/2개, 김치 한 줌, 계란, 다진마늘, 국간장, 액젓, 고추장, 참기름 또는 들기름, 소금, 통깨",
-      "content": "",
+      "content": [],
       "scrap" : 70
     },
     {
@@ -123,7 +124,7 @@ const RecipeProvider = ({ children }) => {
       "time": "30분",
       "servings": "2인분",
       "ingredient": "다진 소고기 300g, 양파 1/2개, 버터 20g, 소금, 허브, 파마산치즈 1스푼, 빵가루 3스푼, 다진마늘 1스푼, 맛술 1스푼, 계란 1개, 후춧가루",
-      "content": "",
+      "content": [],
       "scrap" : 53
     },
     {
@@ -137,7 +138,7 @@ const RecipeProvider = ({ children }) => {
       "time": "20분",
       "servings": "3인분",
       "ingredient": "박력분 130g, 옥수수전분 30g, 계란 1개, 설탕 40g, 소금 2꼬집, 무염버터 40g, 우유 60ml, 물 120ml, 베이킹파우더 6g, 바닐라오일 1티스푼",
-      "content": "",
+      "content": [],
       "scrap" : 77
     },
     {
@@ -151,7 +152,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간",
       "servings": "4인분",
       "ingredient": "소고기 불고기용 500g, 양파 1/2개, 표고버섯 2개, 대파 1대, 당근 약간, 황설탕 2스푼, 올리고당 1스푼, 물엿 1스푼, 다진마늘 1스푼, 진간장 5스푼, 참기름 2스푼, 생강가루, 후추가루, 통깨",
-      "content": "",
+      "content": [],
       "scrap" : 30
     },
     {
@@ -165,7 +166,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간 30분",
       "servings": "2인분",
       "ingredient": "닭다리살 100g, 양파 1/4개, 감자 1개, 양배추 70g, 당근 1/10개, 대파 15cm, 오뚜기 토마토 파스타소스 200g, 치킨육수 2컵, 다진마늘 1/2스푼, 월계수잎 1개, 올리브유 2스푼, 설탕 2스푼, 바질 1/2스푼, 생강 1/2스푼, 소금, 후춧가루",
-      "content": "",
+      "content": [],
       "scrap" :38 
     },
     {
@@ -179,7 +180,7 @@ const RecipeProvider = ({ children }) => {
       "time": "35분",
       "servings": "2인분",
       "ingredient": "오징어 1/2마리, 알새우 6~8마리, 바지락 한 줌, 양파 1/2개, 청경채 2개, 표고버섯 2개, 죽순 60g, 당근 약간, 애호박 약간, 배추 약간, 고추기름 2스푼, 다진마늘 1티스푼, 다진생강 1/4티스푼, 고춧가루 2큰술, 물 3컵, 소금 1/2스푼, 치킨파우더 1/2티스푼, 후춧가루 약간, 참기름 1/2 티스푼",
-      "content": "",
+      "content": [],
       "scrap" : 68
     },
     {
@@ -193,7 +194,7 @@ const RecipeProvider = ({ children }) => {
       "time": "30분",
       "servings": "",
       "ingredient": "오이 3개, 사이다 300ml, 설탕 2티스푼, 식초 2티스푼, 소금 1/2티스푼",
-      "content": "",
+      "content": [],
       "scrap" : 25
     },
     {
@@ -207,7 +208,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간 30분",
       "servings": "4인분",
       "ingredient": "소고기 사태 500g, 두꺼운 베이컨 2줄, 당근 1개, 샐러리 2대, 양송이버섯 6개, 통마늘 4톨, 양파 1개, 파슬리, 올리브오일, 버터 1스푼, 레드와인 2컵, 치킨스톡 1/2조각, 물 250ml, 토마토 페이스트 3스푼, 소금, 후춧가루, 월계수잎 2장",
-      "content": "",
+      "content": [],
       "scrap" : 22
     },
     {
@@ -221,7 +222,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간",
       "servings": "3인분",
       "ingredient": "무염버터 50g, 설탕 80g, 달걀 50g, 바닐라 익스트랙 1티스푼, 박력분 120g, 코코아파우더 30g, 베이킹파우더 4g, 우유 20g, 피칸 20g, 초코칩 30g",
-      "content": "",
+      "content": [],
       "scrap" : 77
     },
     {
@@ -235,7 +236,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간 45분",
       "servings": "2인분",
       "ingredient": "닭날개 750g, 닭봉 750g, 우유, 올리브유, 소금, 후추, 진간장 3스푼, 굴소스 2스푼, 설탕 1/2스푼, 다진마늘 2스푼, 생강가루 1/2티스푼, 케첩 1스푼, 치킨스톡 1티스푼, 고춧가루 2스푼, 맛술 2스푼, 고추장 1스푼, 물엿 또는 올리고당 2스푼, 통깨",
-      "content": "",
+      "content": [],
       "scrap" : 88
     },
     {
@@ -249,7 +250,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간 30분",
       "servings": "",
       "ingredient": "다이제 120g, 버터 40g, 필라델피아 크림치즈 330g(실온), 플레인 요거트 65g(실온), 계란 1개(실온), 레몬 제스트 반개, 바닐라 익스트랙 1/2스푼, 생 블루베리 100g, 냉동 블루베리 125g, 설탕, 레몬즙",
-      "content": "",
+      "content": [],
       "scrap" : 32
     },
     {
@@ -263,7 +264,7 @@ const RecipeProvider = ({ children }) => {
       "time": "10분",
       "servings": "1",
       "ingredient": "플레인 요거트 또는 그릭 요거트 100~150g, 키위 1개, 그래놀라 한 줌, 꿀 1스푼",
-      "content": "",
+      "content": [],
       "scrap" : 72
     },
     {
@@ -277,7 +278,7 @@ const RecipeProvider = ({ children }) => {
       "time": "30분",
       "servings": "4인분",
       "ingredient": "손질한 단호박 200g, 우유 250g, 생크림 250g, 양파 1/2개, 무염버터 20g, 소금",
-      "content": "",
+      "content": [],
       "scrap" : 38
     },
     {
@@ -291,7 +292,7 @@ const RecipeProvider = ({ children }) => {
       "time": "30분",
       "servings": "3인분",
       "ingredient": "알감자15개, 스틱버터 1개, 소금",
-      "content": "",
+      "content": [],
       "scrap" : 29
     },
     {
@@ -305,7 +306,7 @@ const RecipeProvider = ({ children }) => {
       "time": "10분",
       "servings": "",
       "ingredient": "얇게 얼린 우유, 그래놀라, 팥앙금, 미숫가루, 꿀, 떡",
-      "content": "",
+      "content": [],
       "scrap" : 31
     },
     {
@@ -319,7 +320,7 @@ const RecipeProvider = ({ children }) => {
       "time": "1시간",
       "servings": "5인분",
       "ingredient": "두부 1/2모, 부추 70g, 대파 80g, 다진마늘 1스푼, 배추 70g, 다진생강 1/4스푼, 다진돼지고기 360g, 당면 100g, 숙주 250g, 만두피 40~50장, 진간장 3스푼, 꽃소금 1/3스푼, 황설탕 1/2스푼, 굴소스 3스푼, 참기름 3스푼, MSG 1.2스푼, 후춧가루",
-      "content": "",
+      "content": [],
       "scrap" : 40
     }
   ]);
@@ -332,7 +333,7 @@ const RecipeProvider = ({ children }) => {
       "userID" : "yammy",
       "comment" : "맛있어보여요!",
       "commentdate" : "2023-04-24",
-      "good" : 5
+      "like" : 5
     }
   ]);
 
@@ -340,13 +341,11 @@ const RecipeProvider = ({ children }) => {
     commentid++;
   }
 
-  const goodCount = () => {
-    good++;
-  }
+  const setLike = () => {}
 
   const value = {
-    state: {recipelist, commentlist, commentid, good},
-    action: {setRecipelist, setCommentlist, commentidCount, goodCount}
+    state: {recipelist, commentlist, commentid, like},
+    action: {setRecipelist, setCommentlist, commentidCount, setLike}
   }
 
   return <RecipeContext.Provider value={value}>{children}</RecipeContext.Provider>

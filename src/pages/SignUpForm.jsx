@@ -71,6 +71,7 @@ export default function SignUpForm() {
     if ((isValidId===true) && (isValidPw===true) && (isValidPwCheck===true)) {
       // 전달할 user 객체 만들기
       const newUser = {
+        ...userstate.user,
         userID: userID,
         userPW: userPW,
         userName: userName,

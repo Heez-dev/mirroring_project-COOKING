@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import RandomRecipe from '../components/RandomRecipe'
 import SearchWrite from '../components/SearchWrite'
-import BestRecipe from '../components/BestRecipe'
+import BestRecipeComp from '../components/BestRecipeComp'
 import MainEvents from '../components/MainEvents'
 
 
@@ -16,7 +16,7 @@ export default function Main() {
       <main>
         <RandomRecipe/>
         <SearchWrite/>
-        <BestRecipe/>
+        <BestRecipeComp/>
         <MainEvents/>
       </main>
     </div>

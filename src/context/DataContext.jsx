@@ -15,7 +15,9 @@ const DataProvider = ({ children }) => {
     userAddress: "",
     userPhone: "",
     login: false,
-    scraplist: []
+    scraplist: [],
+    likelist: [],
+    writelist:[]
   });
 
   const value = {

@@ -12,16 +12,20 @@ export default function RecipeView() {
   const navigate = useNavigate();
 
   const { state, action } = useContext(RecipeContext);
-  const { userstate } = useContext(DataContext);
+  const { userstate, useraction } = useContext(DataContext);
   const [ comment, setComment ] = useState();
 
   const recipelist = state.recipelist;
   const setRecipelist = action.setRecipelist;
   const commentlist = state.commentlist;
   const setCommentlist = action.setCommentlist;
-  const user = userstate.user
+  const setLike = action.setLike;
+  const user = userstate.user;
+  const setUser = useraction.setUser;
 
   const curRecipe = recipelist.find( (s) => (s.recipeid === parseInt(recipeid)) )
+
+  const curRecipeCommentlist = commentlist.filter( (c) => c.recipeid === parseInt(recipeid) ) 
 
   
   // 현재 날짜, 시간 불러오기
@@ -45,19 +49,66 @@ export default function RecipeView() {
 
   // 댓글 작성 버튼 메소드
   const addComment = (e) => {
-    e.preventdefault();
-    const newComment = {
-      commentid:state.commentid,
-      recipeid: curRecipe.recipeid,
-      userID: user.userID,
-      comment: comment,
-      commentdate: `${YYYY}년${MM}월${DD}일`,
-      good: state.good
-    };
-    action.commentidCount();
-    const newCommentlist = commentlist.concat(newComment);
+    if (user.login === false) {
+      if (window.confirm("로그인이 필요합니다. 로그인 하시겠습니까?")) {
+        window.location.href = '/signin';
+      } else {
+        return -1;
+      }
+    } else {
+      e.preventDefault();
+      const newComment = {
+        commentid:state.commentid,
+        recipeid: curRecipe.recipeid,
+        userID: user.userID,
+        comment: comment,
+        commentdate: `${YYYY}년${MM}월${DD}일`,
+        like: state.like
+      };
+      action.commentidCount();
+      const newCommentlist = commentlist.concat(newComment);
+      setCommentlist(newCommentlist);
+      console.log(commentlist);
+    }
+  }
+
+  // 댓글 삭제 버튼 메소드
+  const deleteComment = (commentid) => {
+    const newCommentlist = commentlist.filter( (c) => (c.commentid !== commentid) );
     setCommentlist(newCommentlist);
   }
+
+
+  // 댓글 좋아요 버튼 메소드
+  const clickLike = (comment) => {
+    if (user.login === false) {
+      if (window.confirm("로그인이 필요합니다. 로그인 하시겠습니까?")) {
+        window.location.href = '/signin';
+      } else {
+        return -1;
+      }
+    } else {
+      // 값이 있다면 삭제
+      if (Array.from(user.likelist).find((like)=>(like.commentid === comment.commentid))) {
+        // user의 likelist에서 삭제
+        const newlikelist = user.likelist.filter((like)=>(like.commentid !== comment.commentid));
+        setUser({ ...user, likelist: newlikelist })
+        // comment의 like -1
+        //const curComment = commentlist.find( (c) => (c.commentid === comment.commentid))
+      } else {
+        // user의 likelist에 추가
+        const newlikelist = {
+          ...user,
+          likelist:comment
+        }
+        setUser({...user, likelist: newlikelist})
+        // comment의 like +1
+        //setCommentlist({ ...commentlist, like:like++ });
+        
+      }
+    }
+  }
+  
 
   
   return (
@@ -79,36 +130,39 @@ export default function RecipeView() {
             }
           </div>
           <table className='currecipe_info_text'>
-            <tr>
-              <td>작성자</td>
-              <td>{curRecipe.userID}</td>
-            </tr>
-            <tr>
-              <td>난이도</td>
-              <td>{curRecipe.Lod}</td>
-            </tr>
-            <tr>
-              <td>소요시간</td>
-              <td>{curRecipe.time}</td>
-            </tr>
-            <tr>
-              <td className='currecipe_ingredient_title'>재료</td>
-            </tr>
-            <tr>
-              <td className='currecipe_ingredient' colSpan={2}>{curRecipe.ingredient}</td>
-            </tr>
-            <p></p>
+            <tbody>
+              <tr>
+                <td>작성자</td>
+                <td>{curRecipe.userID}</td>
+              </tr>
+              <tr>
+                <td>난이도</td>
+                <td>{curRecipe.Lod}</td>
+              </tr>
+              <tr>
+                <td>소요시간</td>
+                <td>{curRecipe.time}</td>
+              </tr>
+              <tr>
+                <td className='currecipe_ingredient_title'>재료</td>
+              </tr>
+              <tr>
+                <td className='currecipe_ingredient' colSpan={2}>{curRecipe.ingredient}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
       <div className='currecipe_content'>
-        {curRecipe.content.map((recipe, i)=>(
-          <div>
+        {curRecipe.content.map((i)=>(
+          <div key={i}>
             <p>{curRecipe.content[i]}</p>
             <br/>
           </div>
         ))}
       </div>
+
+
       <p>댓글</p>
       {/** 코멘트를 작성, 수정, 삭제할 공간 */}
       <div className='currecipe_comment'>
@@ -121,10 +175,12 @@ export default function RecipeView() {
           <input type="submit" value="등록" id='currecipe_comment_writebtn'/>
         </form>
         {
-          commentlist.map((comment)=>(
+          curRecipeCommentlist.map((comment, commentid)=>(
             <CommentComp
-              key={comment.commentid}
+              key={commentid}
               comment={comment}
+              deleteComment={deleteComment}
+              clickLike={clickLike}
             />
           ))
         }

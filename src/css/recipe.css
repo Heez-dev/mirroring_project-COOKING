@@ -1,4 +1,94 @@
 /* 베스트레시피 */
+.best_recipe_wrap {
+  box-sizing: border-box;
+  width: 1500px;
+  height: 750px;
+  margin: auto;
+  text-align: center;
+}
+
+.best_recipe_title {
+  margin-top: 65px;
+  margin-bottom: 45px;
+  font-size: 1.5rem;
+}
+
+.best_recipelist {
+  width: 1500px;
+  height: 450px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.best_recipe {
+  position: relative;
+  width: 284px;
+  height: 450px;
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #E8E8E8;
+  cursor: pointer;
+}
+
+.best_recipe:hover .best_img {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.best_img_wrap {
+  width: 284px;
+  height: 334px;
+  overflow: hidden;
+}
+
+.best_img {
+  width: 284px;
+  height: 334px;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.5s;
+}
+
+.best_ranking_wrap {
+  position: absolute;
+  top: 0;
+  left: 30px;
+  width: 50px;
+  height: 60px;
+  background-color: #F27E65;
+}
+
+.best_ranking {
+  padding-top: 20px;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.best_card .recipecard_heart_icon {
+  position: absolute;
+  right: 15px;
+  bottom: 131px;
+  width: 30px;
+  height: 27px;
+  background-image: url("../img/icon/scrap.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.best_title {
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+.best_card .recipecard_time_wrap {
+  width: 100px;
+  margin: auto;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+
+
 
 
 /* 레시피 카테고리 바 */
@@ -89,14 +179,18 @@
 
 .recipecard_heart_icon {
   background-image: url("../img/icon/scrap.png");
+  background-size: cover;
   width: 20px;
   height: 17.5px;
+  cursor: pointer;
 }
 
 .heart_icon_on {
   background-image: url("../img/icon/scrap_on.png");
+  background-size: cover;
   width: 20px;
   height: 17.5px;
+  cursor: pointer;
 }
 
 .recipecard_time_wrap {
@@ -307,12 +401,53 @@
 
 .comment_user_info {
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .comment_user_edit {
   display: flex;
+  align-items: center;
   width: 200px;
+}
+
+.comment_editbtn {
+  background-image: url('../img/icon/edit.png');
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  background-color: inherit;
+  border: 0;
+  margin: 5px;
+}
+
+.comment_deletebtn{
+  background-image: url('../img/icon/delete.png');
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border: 0;
+}
+
+.comment_like{
+  display: flex;
+  align-items: center;
+}
+
+.comment_like span {
+  padding-left: 5px;
+  padding-top: 3px;
+}
+
+.comment_likebtn {
+  background-image: url('../img/icon/like.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  background-color: inherit;
+  border: 0;
 }
 
 .comment_date {
@@ -329,4 +464,5 @@
   appearance: none;
   border: 1px solid #A4A4A4;
   color: #A4A4A4;
+  padding-top: 3px;
 }
