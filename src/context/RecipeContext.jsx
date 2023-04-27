@@ -12,6 +12,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 1,
       "category": "side",
+      "subtitle" : "아삭아삭 매콤한",
       "title": "배추겉절이 김치",
       "userID": "COOKING",
       "writetime": "2023-04-01",
@@ -26,7 +27,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 2,
       "category": "dessert",
-      "subtitle" : "진한 풍미의 고소한",
+      "subtitle" : "버터향이 풍기는 고소한",
       "title": "팝콘",
       "userID": "jun",
       "writetime": "2023-04-01",
@@ -41,6 +42,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 3,
       "category": "main",
+      "subtitle" : "진한 크림으로 중독적인 맛의",
       "title": "까르보나라",
       "userID": "COOKING",
       "writetime": "2023-04-02",
@@ -74,6 +76,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 4,
       "category": "main",
+      "subtitle" : "간편하고 맛있는",
       "title": "새우국수",
       "userID": "Master",
       "writetime": "2023-04-03",
@@ -88,6 +91,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 5,
       "category": "main",
+      "subtitle" : "카레가 먹고 싶을 땐",
       "title": "버터 치킨 카레",
       "userID": "COOKING",
       "writetime": "2023-04-05",
@@ -102,6 +106,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 6,
       "category": "main",
+      "subtitle" : "여러가지 나물을 섞어 만든",
       "title": "비빔밥",
       "userID": "jun",
       "writetime": "2023-04-07",
@@ -116,6 +121,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 7,
       "category": "side",
+      "subtitle" : "남녀노소 모두 좋아하는",
       "title": "미트볼",
       "userID": "Master",
       "writetime": "2023-04-07",
@@ -130,6 +136,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 8,
       "category": "dessert",
+      "subtitle" : "여러가지 잼과 잘 어울리는",
       "title": "와플",
       "userID": "베이킹조아",
       "writetime": "2023-04-09",
@@ -144,6 +151,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 9,
       "category": "main",
+      "subtitle" : "당면 넣어 먹으면 더 맛있는",
       "title": "소불고기",
       "userID": "COOKING",
       "writetime": "2023-04-11",
@@ -158,6 +166,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 10,
       "category": "soup",
+      "subtitle" : "다이어트 할 때 아주 좋은",
       "title": "토마토 스튜",
       "userID": "COOKING",
       "writetime": "2023-04-12",
@@ -172,6 +181,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 11,
       "category": "soup",
+      "subtitle" : "얼큰한 국물이 생각날 땐",
       "title": "해물 짬뽕탕",
       "userID": "Master",
       "writetime": "2023-04-13",
@@ -186,6 +196,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 12,
       "category": "side",
+      "subtitle" : "새콤달콤 맛있는",
       "title": "피클",
       "userID": "jun",
       "writetime": "2023-04-13",
@@ -200,6 +211,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 13,
       "category": "soup",
+      "subtitle" : "고기향이 진하게 베인",
       "title": "비프 부르기뇽",
       "userID": "COOKING",
       "writetime": "2023-04-14",
@@ -214,6 +226,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 14,
       "category": "dessert",
+      "subtitle" : "달달한 디저트가 생각날 땐",
       "title": "초코머핀",
       "userID": "베이킹조아",
       "writetime": "2023-04-15",
@@ -228,6 +241,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 15,
       "category": "main",
+      "subtitle" : "집에서 해먹는 맛있는",
       "title": "양념 닭 구이",
       "userID": "COOKING",
       "writetime": "2023-04-17",
@@ -242,6 +256,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 16,
       "category": "dessert",
+      "subtitle" : "카페에서 사먹는 듯한",
       "title": "블루베리 치즈 케이크",
       "userID": "베이킹조아",
       "writetime": "2023-04-17",
@@ -256,6 +271,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 17,
       "category": "dessert",
+      "subtitle" : "아침에 간단하게",
       "title": "키위 요거트볼",
       "userID": "jun",
       "writetime": "2023-04-18",
@@ -270,6 +286,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 18,
       "category": "soup",
+      "subtitle" : "단호박이 제철일 땐",
       "title": "단호박 스프",
       "userID": "COOKING",
       "writetime": "2023-04-20",
@@ -284,6 +301,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 19,
       "category": "side",
+      "subtitle" : "휴게소에서 지나칠 수 없는",
       "title": "알감자 버터 구이",
       "userID": "COOKING",
       "writetime": "2023-04-20",
@@ -298,6 +316,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 20,
       "category": "dessert",
+      "subtitle" : "여름 근본 디저트",
       "title": "팥빙수",
       "userID": "jun",
       "writetime": "2023-04-21",
@@ -312,6 +331,7 @@ const RecipeProvider = ({ children }) => {
     {
       "recipeid": 21,
       "category": "side",
+      "subtitle" : "원하는 재료로 만들 수 있는",
       "title": "고기만두",
       "userID": "Master",
       "writetime": "2023-04-21",

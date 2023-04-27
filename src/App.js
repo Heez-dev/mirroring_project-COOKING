@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 
 import "./css/reset.css";
 import "./css/style.css";
+import "./css/main.css"
 import "./css/sign.css";
 import "./css/recipe.css";
 

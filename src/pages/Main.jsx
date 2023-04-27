@@ -4,7 +4,6 @@ import SearchWrite from '../components/SearchWrite'
 import BestRecipeComp from '../components/BestRecipeComp'
 import MainEvents from '../components/MainEvents'
 
-
 import DataContext from '../context/DataContext'
 
 

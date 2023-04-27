@@ -7,10 +7,11 @@
   text-align: center;
 }
 
+
 .best_recipe_title {
   margin-top: 65px;
   margin-bottom: 45px;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .best_recipelist {
@@ -28,6 +29,17 @@
   overflow: hidden;
   background-color: #E8E8E8;
   cursor: pointer;
+}
+
+.best_recipe .recipecard_heart_icon {
+  position: absolute;
+  right: 15px;
+  bottom: 131px;
+  width: 30px;
+  height: 27px;
+  background-image: url("../img/icon/scrap.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .best_recipe:hover .best_img {
@@ -64,27 +76,22 @@
   color: white;
 }
 
-.best_card .recipecard_heart_icon {
-  position: absolute;
-  right: 15px;
-  bottom: 131px;
-  width: 30px;
-  height: 27px;
-  background-image: url("../img/icon/scrap.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+.best_subtitle {
+  color: #9C9C9C;
+  margin-top: 20px;
+  font-size: 0.9rem
 }
 
 .best_title {
   font-size: 1.3rem;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .best_card .recipecard_time_wrap {
   width: 100px;
   margin: auto;
   justify-content: center;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 
