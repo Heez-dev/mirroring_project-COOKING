@@ -30,9 +30,9 @@ export default function RecipeView() {
   
   // 현재 날짜, 시간 불러오기
   const date = new Date();
-  const YYYY = date.getFullYear();
-  const MM = date.getMonth()+1;
-  const DD = date.getDate();
+  const YYYY = String(date.getFullYear()).padStart("4",0);
+  const MM = String(date.getMonth()+1).padStart("2",0);
+  const DD = String(date.getDate()).padStart("2",0);
   const hour = date.getHours();
   const minute = date.getMinutes();
 
@@ -49,6 +49,7 @@ export default function RecipeView() {
 
   // 댓글 작성 버튼 메소드
   const addComment = (e) => {
+    e.preventDefault();
     if (user.login === false) {
       if (window.confirm("로그인이 필요합니다. 로그인 하시겠습니까?")) {
         window.location.href = '/signin';
@@ -56,19 +57,19 @@ export default function RecipeView() {
         return -1;
       }
     } else {
-      e.preventDefault();
       const newComment = {
         commentid:state.commentid,
         recipeid: curRecipe.recipeid,
         userID: user.userID,
         comment: comment,
-        commentdate: `${YYYY}년${MM}월${DD}일`,
+        commentdate: `${YYYY}-${MM}-${DD}`,
         like: state.like
       };
       action.commentidCount();
       const newCommentlist = commentlist.concat(newComment);
       setCommentlist(newCommentlist);
-      console.log(commentlist);
+      e.target.reset(); // form 요소 리셋
+      setComment(""); // 댓글 입력하는 textarea 리셋
     }
   }
 
@@ -154,9 +155,9 @@ export default function RecipeView() {
         </div>
       </div>
       <div className='currecipe_content'>
-        {curRecipe.content.map((i)=>(
+        {curRecipe.content.map((recipeContent, i)=>(
           <div key={i}>
-            <p>{curRecipe.content[i]}</p>
+            <p>{recipeContent}</p>
             <br/>
           </div>
         ))}
@@ -181,6 +182,7 @@ export default function RecipeView() {
               comment={comment}
               deleteComment={deleteComment}
               clickLike={clickLike}
+              user={user}
             />
           ))
         }

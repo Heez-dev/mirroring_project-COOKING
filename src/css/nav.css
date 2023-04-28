@@ -1,3 +1,11 @@
+.nav_wrap {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
 .nav {
   width: 1500px;
   height: 70px;
@@ -21,6 +29,21 @@
   justify-content: space-between;
 }
 
+.nav_list_wrap .active .nav_list {
+  box-sizing: border-box;
+  color: #00A82F;
+}
+
+.user_icon_wrap .user_icon div.active {
+  width: 22px;
+  height: 22px;
+  background-image: url(../img/nav/user_hover.png);
+}
+
+.nav_list_wrap .active {
+  color: #00A82F;
+}
+
 .nav_list_wrap .nav_list {
   box-sizing: border-box;
   height: 70px;
@@ -37,9 +60,15 @@
   padding-left: 8.5px;
 }
 
-.nav_list_wrap .nav_list:hover, .user_icon_wrap:hover {
+.nav_list_wrap .nav_list:hover, .user_icon:hover {
+  box-sizing: border-box;
   border-bottom: 2px solid #00A82F;
   color: #00A82F;
+}
+
+.nav_sub_list li:hover a {
+  color: #00A82F;
+
 }
 
 .user_icon div {
@@ -50,13 +79,15 @@
   transition: all 0.1s;
 }
 .user_icon_wrap:hover .user_icon div {
+  width: 22px;
+  height: 22px;
   background-image: url(../img/nav/user_hover.png);
   transition: all 0.1s;
 }
 
 .user_icon_wrap:hover .nav_sub_list {
-  visibility: visible;
-
+  display: block;
+  transition: all 0.3s;
 }
 
 .user_icon_wrap {
@@ -65,13 +96,17 @@
 
 .nav_sub_list {
   position: absolute;
+  top: 70px;
   transform: translateX(-36%);
   width: 150px;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
-  visibility: hidden;
+  display: none;
   color: gray;
+  background-color: white;
+  transition: all 0.3s;
+  border-radius: 0 0 40px 40px;
 }
 
 .nav_sub_list li {

@@ -2,11 +2,30 @@
 .best_recipe_wrap {
   box-sizing: border-box;
   width: 1500px;
-  height: 750px;
   margin: auto;
+  margin-top: 70px;
   text-align: center;
 }
 
+#bestRecipeSwiperId {
+  overflow: visible;
+  margin-bottom: 50px;
+}
+
+#bestRecipeSwiperId .swiper-pagination {
+  position: relative;
+  margin-top: 25px;
+  z-index: 0;
+}
+
+#bestRecipeSwiperId .swiper-pagination-bullet-active {
+  background-color: #303030;
+}
+
+.best_recipe_wrap {
+  width: 1500px;
+  overflow: hidden;
+}
 
 .best_recipe_title {
   margin-top: 65px;
@@ -42,6 +61,17 @@
   background-size: cover;
 }
 
+.best_recipe .heart_icon_on {
+  position: absolute;
+  right: 14px;
+  bottom: 132px;
+  width: 32.5px;
+  height: 28.5px;
+  background-image: url("../img/icon/scrap_on.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .best_recipe:hover .best_img {
   transform: scale(1.1);
   transition: all 0.5s;
@@ -68,6 +98,7 @@
   width: 50px;
   height: 60px;
   background-color: #F27E65;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
 }
 
 .best_ranking {
@@ -111,6 +142,7 @@
   height: 50px;
   align-items: center;
   margin: auto;
+  margin-top: 150px;
   background-color: #EDDED7;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -321,7 +353,6 @@
   font-size: 1.8rem;
   margin-top: 40px;
   width: 100%;
-  overflow: hidden;
 }
 .currecipe_info_text tr {
   height: 40px;
@@ -349,7 +380,7 @@
   border-bottom: 1.5px solid #A4A4A4;
   margin: 50px 0;
   padding: 50px 0;
-  text-align: center;
+  text-align: left;
   font-size: 1.2rem;
 }
 
@@ -365,6 +396,8 @@
 
 .currecipe_comment_write {
   display: flex;
+  padding-bottom: 15px;
+  border-bottom: 1.5px solid #A4A4A4;
 }
 
 #currecipe_comment_writetext {
@@ -389,20 +422,18 @@
 }
 
 /* CommentComp */
-.connemt_content {
+.comment_content {
   display: grid;
   grid-template-columns: 1210px 140px 60px;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  margin-top: 15px;
-  border-top: 1.5px solid #A4A4A4;
   border-bottom: 1.5px solid #A4A4A4;
   padding: 15px 20px;
   line-height: 35px;
 }
 
-.connemt_content button {
+.comment_content button {
   cursor: pointer;
 }
 

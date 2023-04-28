@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
@@ -17,7 +17,6 @@ export default function BestRecipeComp() {
   const { state } = useContext(RecipeContext);
   const recipelist = state.recipelist
   
-  
   const itemsPerPage = 5; // 한 페이지당 보여줄 아이템의 개수
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
   const endIndex = currentPage * itemsPerPage;
@@ -26,15 +25,17 @@ export default function BestRecipeComp() {
   // scrap 수 기준으로 레시피리스트 정렬
   const scrapSortedRecipelist = [...recipelist].sort((a, b) => b.scrap - a.scrap);
   const bestRecipelist = scrapSortedRecipelist.slice(0,10);
-  
-  // 현재 페이지에 해당하는 배열만 추출하고 출력
-  const currentItems = bestRecipelist.slice(startIndex, endIndex);
 
+  const bestRecipeSwiperId = "bestRecipeSwiper";
 
+  useEffect(() => { 
+    document.getElementById('BestRecipeComp')?.scrollTo(0, 0); // 첫 렌더시 스크롤이 최상단 고정된다
+  }, []);
 
   return (
     <div className='best_recipe_wrap'>
       <h3 className='best_recipe_title'># 베스트 레시피</h3>
+      {/** Swiper를 이용한 슬라이더 */}
       <Swiper 
         slidesPerView={1}
         spaceBetween={10}
@@ -57,32 +58,35 @@ export default function BestRecipeComp() {
         }}
         modules={[Pagination]}
         className="mySwiper best_recipelist"
+        id='bestRecipeSwiperId'
       >
-        {
-          bestRecipelist.map(({ recipeid, category, subtitle, title, userID, writetime, img, Lod, time, servings, ingredient, content, scrap }, index)=>(
-            <SwiperSlide className='best_recipe' key={recipeid}>
-              <Link to={`/recipe/${recipeid}/${category}/${title}`}>
-                <div className='best_card'>
-                  <div className='best_img_wrap'>
-                    
-                      <div className='best_img' style={{backgroundImage: `url(${img})`}}></div>
-                    
+        <div className='best_recipe_wrap'>
+          {
+            bestRecipelist.map(({ recipeid, category, subtitle, title, userID, writetime, img, Lod, time, servings, ingredient, content, scrap }, index)=>(
+              <SwiperSlide className='best_recipe' key={recipeid}>
+                <Link to={`/recipe/${recipeid}/${category}/${title}`}>
+                  <div className='best_card'>
+                    <div className='best_img_wrap'>
+                      
+                        <div className='best_img' style={{backgroundImage: `url(${img})`}}></div>
+                      
+                    </div>
+                    <div className='best_ranking_wrap'>
+                      <h4 className='best_ranking'>{String(index + 1).padStart(2,"0")}</h4>
+                    </div>
+                    <h4 className='best_subtitle'>{subtitle}</h4>
+                    <h3 className='best_title'>{title}</h3>
+                    <div className='recipecard_time_wrap'>
+                      <div className='recipecard_time_icon'></div>
+                      <span className='recipecard_time'>{time}</span>
+                    </div>
                   </div>
-                  <div className='best_ranking_wrap'>
-                    <h4 className='best_ranking'>{String(index + 1).padStart(2,"0")}</h4>
-                  </div>
-                  <h4 className='best_subtitle'>{subtitle}</h4>
-                  <h3 className='best_title'>{title}</h3>
-                  <div className='recipecard_time_wrap'>
-                    <div className='recipecard_time_icon'></div>
-                    <span className='recipecard_time'>{time}</span>
-                  </div>
-                </div>
-              </Link>
-              <ScrapBtnComp/>
-            </SwiperSlide>
-          ))
+                </Link>
+                <ScrapBtnComp recipe={bestRecipelist[index]}/>
+              </SwiperSlide>
+            ))
         }
+        </div>
       </Swiper>
     </div>
   )

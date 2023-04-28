@@ -3,19 +3,28 @@
   width: 100%;
   height: 600px;
   position: relative;
-  margin-bottom: 50px;
+  margin-top: 70px;
+}
+
+.random_recipe_back_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
   background-color: #685144;
-  box-sizing: border-box;
-  padding: 50px 0;
-  padding-left: 50px;
+  height: 500px;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .random_recipe_back {
-  background-color: #EDDED7;
-  height: 500px;
-  width: 850px;
-  box-sizing: border-box;
+  background-color: #ece1dc;
+  width: 90%;
+  height: 85%;
+  margin: auto;
   padding: 50px 0;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -99,20 +108,31 @@
 
 /* SearchWrite 컴포넌트 */
 .searchandwrite {
-  width: 1500px;
+  box-sizing: border-box;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: auto;
+  padding: 0 50px;
+  margin-top: 30px;
+  margin-bottom: 80px;
 }
 
 .searchandwrite .search_bar {
   position: relative;
-  margin-bottom: 20px;
+  width: 75%;
+  transition: all 0.5s;
 }
 
-.searchandwrite .search_bar .search_input {
-  width: 1080px;
+.searchandwrite .search_bar_onscroll {
+  position: relative;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.searchandwrite .search_bar .search_input,
+.searchandwrite .search_bar_onscroll .search_input {
+  width: 100%;
   height: 60px;
   background-color: #EDDED7;
   border-radius: 50px;
@@ -120,13 +140,16 @@
   font-size: 2rem;
   padding-left: 35px;
   color: #816759;
+  margin-bottom: 0;
 }
 
-.searchandwrite .search_bar .search_input::placeholder {
+.searchandwrite .search_bar .search_input::placeholder,
+.searchandwrite .search_bar_onscroll .search_input::placeholder {
   color: #816759;
 }
 
-.searchandwrite .search_bar .search_btn {
+.searchandwrite .search_bar .search_btn,
+.searchandwrite .search_bar_onscroll .search_btn {
   position: absolute;
   top: 11px;
   right: 25px;
@@ -141,30 +164,168 @@
 }
 
 .write_btn {
-  width: 400px;
+  width: 24%;
   height: 60px;
   border-radius: 50px;
   background-color: #F27E65;
   border: 0;
-  margin-bottom: 35px;
   font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.5s;
+  overflow: hidden;
 }
 
-.write_text {
+.write_btn:hover {
+  background-color: #00A82F;
+}
+
+.write_btn .animated {
+  white-space: nowrap;
+  display: flex;
+  will-change: transform;
+  animation: marquee 10s linear infinite;
+}
+
+.write_btn .animated .content {
+  width: 290px;
+  display: flex;
+  align-items: center;
   color: #F2EEEC;
-  padding-top: 8px;
 }
 
-.write_icon {
-  background-image: url(../img/icon/write.png);
-  background-position: calc();
-  background-size: cover;
-  background-position: center;
-  width: 40px;
-  height: 40px;
+.write_btn .animated .content img {
   margin-left: 10px;
 }
+
+.write_btn_onscroll {
+  position: fixed;
+  top: 680px;
+  right: 50px;
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: all 0.5s;
+  background-color: #F27E65;
+  border: 0;
+  font-size: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: border-box;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: btnmove 0.5s;
+}
+
+@keyframes btnmove {
+  30% {
+    width: 30px;
+  }
+  100% {
+    width: 100px;
+  }
+}
+
+.write_btn_onscroll .animated {
+  font-size: 1.5rem;
+  white-space: nowrap;
+  display: flex;
+  will-change: transform;
+  animation: marquee 7s linear infinite;
+}
+
+.write_btn_onscroll .content {
+  width: 215px;
+  display: flex;
+  align-items: center;
+  color: #F2EEEC;
+}
+
+.write_btn_onscroll .content img {
+  width: 30px;
+  height: 30px;
+  margin-left: 6px;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-35%); }
+}
+
+.write_btn_onscroll:hover {
+  transform: scale(1.2);
+  background-color: #00A82F;
+}
+
+
+/* TopBtn 컴포넌트 */
+.top_btn{
+  visibility: hidden;
+  position: fixed;
+  width: 0;
+  height: 0;
+  right: 50px;
+  bottom: -100px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #EDDED7;
+  transition: all 0.5s;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #816759;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.top_btn_show {
+  visibility: visible;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  right: 50px;
+  bottom: 150px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #EDDED7;
+  transition: all 0.5s;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #816759;
+  z-index: 100;
+  cursor: pointer;
+  animation: topbtnmove 0.7s;
+}
+
+
+.top_btn_show:hover {
+  transform: scale(1.2);
+  background-color: #685144;
+  color: #F2EEEC;
+}
+
+@keyframes topbtnmove {
+  30% {
+    bottom: 180px;
+  }
+  100% {
+    bottom: 150px;
+  }
+}
+
+
+
+/* BestRecipe 컴포넌트 */
+.mainpage .best_recipe_wrap {
+  margin-top: 0;
+}
+
+.mainpage .best_recipe_wrap .best_recipe_title {
+  margin-top: 0;
+}
+
+

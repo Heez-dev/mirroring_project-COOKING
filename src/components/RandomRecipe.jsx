@@ -26,41 +26,43 @@ export default function RandomRecipe() {
 
   return (
     <div className='random_recipe'>
-      <div className='random_recipe_back'>
-        <div className='random_textandbtn'>
-          <div className='random_text'>
-            <h3>오늘은 뭐 먹지?</h3>
-            <p>쿠킹이 추천하는 랜덤 레시피</p>
-          </div>
-          <div className='random_btn'>
-            <button 
-              onClick={()=>{randomValueFromArray(main, "main")}}
-              className={activeButton === 'main' ? 'active' : ''}
-            >
-              메인음식
-            </button>
-            <button 
-              onClick={()=>{randomValueFromArray(side, "side")}}
-              className={activeButton === 'side' ? 'active' : ''}
-            >
-              곁들임음식
-            </button>
-            <button 
-              onClick={()=>{randomValueFromArray(soup, "soup")}}
-              className={activeButton === 'soup' ? 'active' : ''}
-            >
-              국/찌개
-            </button>
-          </div>
-        </div>
-        {
-          selectedRecipe && (
-            <div className='random_title'>
-              <p>{selectedRecipe.subtitle},</p>
-              <h5>{selectedRecipe.title}</h5>
+      <div className='random_recipe_back_wrap'>
+        <div className='random_recipe_back'>
+          <div className='random_textandbtn'>
+            <div className='random_text'>
+              <h3>오늘은 뭐 먹지?</h3>
+              <p>쿠킹이 추천하는 랜덤 레시피</p>
             </div>
-          )
-        }
+            <div className='random_btn'>
+              <button 
+                onClick={()=>{randomValueFromArray(main, "main")}}
+                className={activeButton === 'main' ? 'active' : ''}
+              >
+                메인음식
+              </button>
+              <button 
+                onClick={()=>{randomValueFromArray(side, "side")}}
+                className={activeButton === 'side' ? 'active' : ''}
+              >
+                곁들임음식
+              </button>
+              <button 
+                onClick={()=>{randomValueFromArray(soup, "soup")}}
+                className={activeButton === 'soup' ? 'active' : ''}
+              >
+                국/찌개
+              </button>
+            </div>
+          </div>
+          {
+            selectedRecipe && (
+              <div className='random_title'>
+                <p>{selectedRecipe.subtitle},</p>
+                <h5>{selectedRecipe.title}</h5>
+              </div>
+            )
+          }
+        </div>
       </div>
       <div className='random_recipe_result'>
         {selectedRecipe && (

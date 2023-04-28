@@ -2,22 +2,35 @@ import React from 'react'
 
 export default function CommentComp(props) {
   const {commentid, recipeid, userID, comment, commentdate, like} = props.comment;
-  const {deleteComment, clickLike} = props;
+  const {deleteComment, clickLike, user} = props;
 
   return (
-    <div className='connemt_content'>
+    <div className='comment_content'>
       <div>
         <div className='comment_user_info'>
           <div className='comment_user_edit'>
             <h5 className='comment_user'>{userID}</h5>
-            <button 
-              className='comment_editbtn'
-            ></button>
+            {
+              user.userID === userID
+              ? (
+                <button 
+                  className='comment_editbtn'
+                ></button>
+              )
+              : null
+            }
+            
           </div>
-          <button className='comment_deletebtn'
-            onClick={()=>{deleteComment(commentid)}}
-          >
-          </button>
+          {
+            user.userID === userID
+            ? (
+              <button className='comment_deletebtn'
+                onClick={()=>{deleteComment(commentid)}}
+              >
+              </button>
+            )
+            : null
+          }
         </div>
         <p>{comment}</p>
         <div className='comment_like'>
