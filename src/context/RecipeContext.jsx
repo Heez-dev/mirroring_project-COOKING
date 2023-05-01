@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const RecipeContext = React.createContext("");
 
+let recipeid = 22;
 let commentid = 2;
 let like = 0;
 
@@ -278,7 +279,7 @@ const RecipeProvider = ({ children }) => {
       "img": "https://images.unsplash.com/photo-1611575609000-9a77fd26b7f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "Lod": "★☆☆☆☆" ,
       "time": "10분",
-      "servings": "1",
+      "servings": "1인분",
       "ingredient": "플레인 요거트 또는 그릭 요거트 100~150g, 키위 1개, 그래놀라 한 줌, 꿀 1스푼",
       "content": [],
       "scrap" : 72
@@ -338,7 +339,7 @@ const RecipeProvider = ({ children }) => {
       "img": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       "Lod": "★★★★☆",
       "time": "1시간",
-      "servings": "5인분",
+      "servings": "4인분",
       "ingredient": "두부 1/2모, 부추 70g, 대파 80g, 다진마늘 1스푼, 배추 70g, 다진생강 1/4스푼, 다진돼지고기 360g, 당면 100g, 숙주 250g, 만두피 40~50장, 진간장 3스푼, 꽃소금 1/3스푼, 황설탕 1/2스푼, 굴소스 3스푼, 참기름 3스푼, MSG 1.2스푼, 후춧가루",
       "content": [],
       "scrap" : 40
@@ -357,6 +358,10 @@ const RecipeProvider = ({ children }) => {
     }
   ]);
 
+  const recipeidCount = () => {
+    recipeid++;
+  }
+
   const commentidCount = () => {
     commentid++;
   }
@@ -364,8 +369,8 @@ const RecipeProvider = ({ children }) => {
   const setLike = () => {}
 
   const value = {
-    state: {recipelist, commentlist, commentid, like},
-    action: {setRecipelist, setCommentlist, commentidCount, setLike}
+    state: {recipelist, commentlist, recipeid, commentid, like},
+    action: {setRecipelist, setCommentlist, recipeidCount, commentidCount, setLike}
   }
 
   return <RecipeContext.Provider value={value}>{children}</RecipeContext.Provider>

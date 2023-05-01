@@ -148,7 +148,9 @@ export default function RecipeView() {
                 <td className='currecipe_ingredient_title'>재료</td>
               </tr>
               <tr>
-                <td className='currecipe_ingredient' colSpan={2}>{curRecipe.ingredient}</td>
+                <td className='currecipe_ingredient' colSpan={2}>
+                  <p>({curRecipe.servings} 기준)</p>
+                  {curRecipe.ingredient}</td>
               </tr>
             </tbody>
           </table>
