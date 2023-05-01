@@ -138,7 +138,7 @@ export default function RecipeView() {
               </tr>
               <tr>
                 <td>난이도</td>
-                <td>{curRecipe.Lod}</td>
+                <td className='currecipe_lod'>{curRecipe.Lod}</td>
               </tr>
               <tr>
                 <td>소요시간</td>

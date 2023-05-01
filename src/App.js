@@ -18,6 +18,8 @@ import RecipeSide from "./pages/RecipeSide";
 import RecipeSoup from "./pages/RecipeSoup";
 import RecipeDessert from "./pages/RecipeDessert";
 import RecipeView from "./pages/RecipeView";
+import RecipeWriteForm from "./pages/RecipeWriteForm";
+import RecipeEditForm from "./pages/RecipeEditForm";
 import Town from "./pages/Town";
 import Class from "./pages/Class";
 import User from "./pages/User";
@@ -26,8 +28,6 @@ import Mypage_RecipeBook from "./pages/Mypage_RecipeBook";
 
 import { DataProvider } from "./context/DataContext";
 import { RecipeProvider } from "./context/RecipeContext";
-import RecipeWriteForm from "./pages/RecipeWriteForm";
-import RecipeEditForm from "./pages/RecipeEditForm";
 
 
 

@@ -1,4 +1,4 @@
-/* 베스트레시피 */
+/* BestRecipeComp 컴포넌트 */
 .best_recipe_wrap {
   box-sizing: border-box;
   width: 1500px;
@@ -129,7 +129,7 @@
 
 
 
-/* 레시피 카테고리 바 */
+/* RecipeCardComp 컴포넌트 - 레시피 카테고리 바 */
 .recipecards_wrap{
   display: grid;
 }
@@ -162,7 +162,7 @@
 }
 
 
-/* 카테고리별 레시피카드 */
+/* RecipeCardComp 컴포넌트 - 카테고리별 레시피카드 */
 .recipecards_wrap {
   box-sizing: border-box;
   display: grid;
@@ -362,6 +362,10 @@
   width: 150px;
 }
 
+.currecipe_lod {
+  color: rgb(235, 199, 0);
+}
+
 .currecipe_ingredient_title {
   top: 0;
 }
@@ -386,7 +390,7 @@
 
 
 
-/* 댓글 */
+/* RecipeView 페이지 - CommentComp 컴포넌트 */
 .currecipe_comment {
   width: 100%;
   background-color: #ECECEC;
@@ -421,7 +425,9 @@
   margin: 0;
 }
 
-/* CommentComp */
+
+
+/* CommentComp 컴포넌트 */
 .comment_content {
   display: grid;
   grid-template-columns: 1210px 140px 60px;
@@ -503,4 +509,181 @@
   border: 1px solid #A4A4A4;
   color: #A4A4A4;
   padding-top: 3px;
+}
+
+
+
+/* RecipeWriteForm 페이지 */
+.recipe_write_form_wrap {
+  margin: auto;
+  margin-top: 180px;
+  text-align: center;
+  width: 1000px;
+}
+
+.recipe_write_form_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #F27E65
+}
+
+.recipe_write_form {
+  margin: 100px;
+}
+
+.form_uploadimg {
+  width: 100%;
+  height: 300px;
+  background-color: #EDDED7;
+  border: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.form_uploadimg_icon {
+  width: 100px;
+  height: 140px;
+  background-image: url(../img/icon/uploadimg.png);
+  margin: auto;
+  cursor: pointer;
+}
+
+.recipe_write_form .form_uploadtitle {
+  width: 100%;
+  font-size: 2rem;
+  border: 0;
+  margin: 45px 0;
+  padding: 0;
+}
+
+.recipe_write_form .form_uploadtitle::placeholder {
+  color: #A4A4A4;
+}
+
+.form_info {
+  text-align: left;
+  margin: 25px 0;
+}
+
+.form_info.flex {
+  display: flex;
+  align-items: center;
+}
+
+.form_info .form_label {
+  font-size: 2rem;
+  color: #A4A4A4;
+  width: 125px;
+}
+
+.form_info .form_lod {
+  width: 150px;
+  height: 35px;
+  margin-left: 20px;
+}
+
+.form_info .form_time {
+  margin: 0;
+  margin-left: 20px;
+  width: 150px;
+}
+
+.form_info textarea {
+  margin-top: 7px;
+  width: 100%;
+  background-color: #ECECEC;
+  border: 0;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+
+.form_info textarea:focus {
+  outline: 0;
+}
+
+.recipe_write_form .form_submitbtn {
+  margin: 100px auto;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+
+/* RecipeWriteForm 페이지 - 이미지 업로드 모달창 */
+.recipe_write_form_wrap .modalscreen {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.madal_show {
+  display: block;
+}
+
+.modal_noshow {
+  display: none;
+}
+
+.modal_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.modal {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 230px;
+  background-color: white;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.modal h5 {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding-top: 13px;
+}
+
+.modal .addimg {
+  color: #00A82F;
+}
+
+.modal input[type=file] {
+  display: none;
+}
+
+.modal label,
+.modal button {
+  width: 100%;
+  height: 55px;
+  appearance: none;
+  border: 0;
+  background-color: inherit;
+  border-top: 0.5px solid #c5c5c5;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.modal label {
+  box-sizing: border-box;
+  padding-top: 20px;
+  font-size: 0.9rem;
+}
+
+.modal .deleteimg { 
+  color: tomato;
 }
