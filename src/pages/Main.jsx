@@ -10,13 +10,11 @@ import TopBtnComp from '../components/TopBtnComp'
 
 export default function Main() {
   const {userstate} = useContext(DataContext);
-  console.log(userstate.login);
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-    console.log(window.scrollY || document.documentElement.scrollTop);
   };
 
   useEffect(()=>{

@@ -58,7 +58,7 @@ export default function RecipeWriteForm() {
   const handleTextareaChange = (e) => {
     const value = e.target.value;
     const newContentArray = value.split('\n').map((content) => {
-      return { step: content.trim() };
+      return content.trim();
     });
     setNewContent(newContentArray);
   };
@@ -88,8 +88,8 @@ export default function RecipeWriteForm() {
     action.setRecipelist(newRecipelist);
     action.recipeidCount();
     navigate('/recipe/all');
+    console.log(state.recipeid);
   }
-  console.log(state.recipeid);
   
 
 

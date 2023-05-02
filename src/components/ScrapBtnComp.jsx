@@ -18,9 +18,7 @@ export default function ScrapBtnComp({recipe}) {
     if(user.login === false) {
       if (window.confirm("로그인이 필요합니다. 로그인하시겠습니까?")) {
         window.location.href = '/signin'
-      } else {
-        alert("취소하셨습니다.")
-      }
+      } else {}
     } else {
 
       // user.scraplist에 해당 recipeid 값이 있다면 >> 제거

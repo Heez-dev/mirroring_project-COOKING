@@ -5,6 +5,7 @@ import ScrapBtnComp from '../components/ScrapBtnComp';
 import DataContext from '../context/DataContext';
 import CommentComp from '../components/CommentComp';
 
+import { FaStar } from 'react-icons/fa';
 
 
 export default function RecipeView() {
@@ -45,6 +46,8 @@ export default function RecipeView() {
       navigate('/recipe/all');
     }
   }
+
+  console.log(curRecipeCommentlist)
 
 
   // 댓글 작성 버튼 메소드
@@ -117,16 +120,29 @@ export default function RecipeView() {
       <div className='currecipe_info'>
         <div style={{backgroundImage: `url(${curRecipe.img})`}} className='currecipe_info_img'></div>
         <div className='currecipe_info_text_wrap'>
-          <div className='currecipe_title_wrap'>
-            <h1 className='currecipe_title'>{curRecipe.title}</h1>
-
+          <div className='currecipe_title_btn'>
+            <div className='currecipe_title_wrap'>
+              <h3 className='currecipe_subtitle'>{curRecipe.subtitle}</h3>
+              <h1 className='currecipe_title'>{curRecipe.title}</h1>
+            </div>
             {
               curRecipe && ( user.userID === curRecipe.userID 
                 ? <div>
-                  <button onClick={()=>{navigate(`/recipe/${curRecipe.recipeid}/${curRecipe.category}/${curRecipe.title}/edit`, {state: curRecipe})}}>수정</button>
-                  <button onClick={deleteRecipe}>삭제</button>
+                  <button 
+                    onClick={()=>{navigate(`/recipe/${curRecipe.recipeid}/${curRecipe.category}/${curRecipe.title}/edit`, {state: curRecipe})}}
+                    className='currecipe_btn currecipe_edit'
+                  >
+                    수정
+                  </button>
+                  <br />
+                  <button 
+                    onClick={deleteRecipe}
+                    className='currecipe_btn currecipe_delete'
+                  >
+                    삭제
+                  </button>
                 </div>
-                : <ScrapBtnComp className='currecipe_scrap'/>
+                : <ScrapBtnComp className='currecipe_scrap' recipe={curRecipe}/>
                 )
             }
           </div>
@@ -138,7 +154,21 @@ export default function RecipeView() {
               </tr>
               <tr>
                 <td>난이도</td>
-                <td className='currecipe_lod'>{curRecipe.Lod}</td>
+                {/*<td className='currecipe_lod'>{curRecipe.Lod}</td>*/}
+                <td>
+                {[...Array(5)].map( (star, i) => {
+                      const ratingvalue = i + 1;
+                      return (
+                        <label key={i}>
+                          <FaStar
+                            className='form_lod_star'
+                            color={ ratingvalue <= curRecipe.Lod ? "#ffc107" : "#A4A4A4"}
+                            size="25"
+                          />
+                        </label>
+                      )} 
+                    )}
+                </td>
               </tr>
               <tr>
                 <td>소요시간</td>
@@ -149,7 +179,12 @@ export default function RecipeView() {
               </tr>
               <tr>
                 <td className='currecipe_ingredient' colSpan={2}>
-                  <p>({curRecipe.servings} 기준)</p>
+                  {
+                    curRecipe.servings 
+                    ? <p>({curRecipe.servings} 기준)</p>
+                    : null
+                  }
+                  
                   {curRecipe.ingredient}</td>
               </tr>
             </tbody>
@@ -169,11 +204,16 @@ export default function RecipeView() {
       <p>댓글</p>
       {/** 코멘트를 작성, 수정, 삭제할 공간 */}
       <div className='currecipe_comment'>
-        <form action="" className='currecipe_comment_write' onSubmit={addComment}>
+        <form 
+          action="" 
+          className="currecipe_comment_write"
+          onSubmit={addComment}
+        >
           <textarea 
             placeholder='댓글을 입력해 주세요' 
             id='currecipe_comment_writetext'
             onChange={(e)=>{setComment(e.target.value)}}
+            spellCheck="false" 
           ></textarea>
           <input type="submit" value="등록" id='currecipe_comment_writebtn'/>
         </form>

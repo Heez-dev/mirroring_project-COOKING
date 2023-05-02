@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import ClassEventSliderComp from '../components/ClassEventSliderComp';
 
 
 export default function Class() {
@@ -6,7 +7,7 @@ export default function Class() {
   
   return (
     <div>
-      
+      <ClassEventSliderComp/>
     </div>
   )
 }

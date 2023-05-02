@@ -5,7 +5,6 @@ export default function TopBtnComp() {
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY || document.documentElement.scrollTop);
-    console.log(window.scrollY || document.documentElement.scrollTop);
   };
 
   useEffect(()=>{

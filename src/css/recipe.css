@@ -322,6 +322,8 @@
 
 .currecipe_info {
   display: flex;
+  padding-bottom: 40px;
+  border-bottom: 1.5px solid #A4A4A4;
 }
 
 .currecipe_info_img {
@@ -340,10 +342,14 @@
   height: 600px;
 }
 
-.currecipe_title_wrap {
+.currecipe_title_btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.currecipe_title_wrap {
+  width: 850px;
 }
 
 .currecipe_title_wrap .heart_icon_on,
@@ -352,21 +358,54 @@
   height: 43px;
 }
 
+.currecipe_subtitle {
+  font-size: 2rem;
+}
+
 .currecipe_title {
   font-size: 4rem;
   padding-top: 15px;
 }
 
+.currecipe_btn {
+  margin: 5px 0;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 0;
+  background-color: #EDDED7;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.currecipe_edit:hover {
+  background-color: #816759;
+  color: #FDF7F7;
+  transition: all 0.2s;
+}
+
+.currecipe_delete:hover {
+  background-color: #F27E65;
+  color: #FDF7F7;
+  transition: all 0.2s;
+}
+
 .currecipe_info_text {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-top: 40px;
   width: 100%;
 }
 .currecipe_info_text tr {
   height: 40px;
+  display: flex;
+  width: 100%;
+  justify-content: baseline;
 }
 
-.currecipe_info_text tr td:first-child {
+.currecipe_info_text tr:nth-child(1) td:first-child,
+.currecipe_info_text tr:nth-child(2) td:first-child,
+.currecipe_info_text tr:nth-child(3) td:first-child {
   width: 150px;
 }
 
@@ -380,17 +419,16 @@
 .currecipe_info_text .currecipe_ingredient {
   background-color: #EDDED7;
   border-collapse: collapse;
-  width: 100%;
-  height: 242px;
+  width: 873.84px;
+  height: 200px;
   line-height: 40px;
   vertical-align: text-top;
   padding: 20px;
 }
 
 .currecipe_content {
-  border-top: 1.5px solid #A4A4A4;
   border-bottom: 1.5px solid #A4A4A4;
-  margin: 50px 0;
+  margin-bottom: 50px;
   padding: 50px 0;
   text-align: left;
   font-size: 1.2rem;
@@ -408,8 +446,6 @@
 
 .currecipe_comment_write {
   display: flex;
-  padding-bottom: 15px;
-  border-bottom: 1.5px solid #A4A4A4;
 }
 
 #currecipe_comment_writetext {
@@ -418,6 +454,7 @@
   box-sizing: border-box;
   border: 0;
   padding: 10px;
+  resize: none;
 }
 
 #currecipe_comment_writetext:focus {
@@ -518,6 +555,36 @@
   color: #A4A4A4;
   padding-top: 3px;
 }
+
+
+
+/* RecipeEditForm 페이지 */
+.currecipe_edit_wrap {
+  width: 1500px;
+  margin: auto;
+  padding: 50px 0;
+  margin-top: 50px;
+}
+
+.currecipe_edit_wrap input {
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.currecipe_edit_wrap .currecipe_subtitle {
+  height: 32px;
+  font-size: 2rem;
+}
+
+.currecipe_edit_wrap .currecipe_title {
+  font-size: 4rem;
+  margin-top: 15px;
+  height: 79px;
+}
+
+
 
 
 
@@ -670,6 +737,10 @@
 
 .form_info textarea:focus {
   outline: 0;
+}
+
+.form_info textarea::placeholder {
+  color: #A4A4A4;
 }
 
 .recipe_write_form .form_submitbtn {

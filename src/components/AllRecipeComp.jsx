@@ -62,13 +62,16 @@ export default function AllRecipeComp() {
 
   return (
     <div>
+
       <div className='recipecards_wrap'>
         {currentItems.map((recipelist, recipeid) => (
           <RecipeCardComp key={recipeid} recipelist={recipelist} />
         ))}
       </div>
+
       <div className='recipecards_pagebtn_wrap'>
         <button onClick={handlePrevBtnClick} className='prevbtn'></button>
+
         {/* 페이지 번호 버튼 */}
         <div className='currentpagebtnslide'>
           {currentPageBtns.map((_, index) => {
@@ -89,8 +92,9 @@ export default function AllRecipeComp() {
             );
           })}
         </div>
+        
         <button onClick={handleNextBtnClick} className='nextbtn'></button>
-        </div>
+      </div>
     </div>
   );
 }

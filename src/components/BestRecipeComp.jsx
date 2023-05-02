@@ -2,7 +2,7 @@ import React, { useContext, useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
-import { Pagination } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -39,6 +39,11 @@ export default function BestRecipeComp() {
       <Swiper 
         slidesPerView={1}
         spaceBetween={10}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        }}
         pagination={{
           clickable: true,
         }}
@@ -56,7 +61,8 @@ export default function BestRecipeComp() {
             spaceBetween: 20,
           },
         }}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper best_recipelist"
         id='bestRecipeSwiperId'
       >

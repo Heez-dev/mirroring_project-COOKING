@@ -1,9 +1,22 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import DataContext from '../context/DataContext';
 
 export default function SearchWrite({scrollPosition}) {
   const navigate = useNavigate();
+  const { userstate } = useContext(DataContext);
+  const user = userstate.user
+
+  const onClickWriteBtn = () => {
+    if ( user.login ) {
+      navigate('/recipe/write')
+    } else {
+      if ( window.confirm("로그인이 필요합니다. 로그인하시겠습니까?") ) {
+        window.location.href = '/signin'
+      }
+    }
+  };
   
   return (
     <div>
@@ -23,7 +36,7 @@ export default function SearchWrite({scrollPosition}) {
               scrollPosition > 99 ? "write_btn_onscroll" : ""
               + " write_btn"
             }
-            onClick={()=>{navigate('/recipe/write')}}
+            onClick={onClickWriteBtn}
           >
             <div className='animated'>
               <span className='content'>
