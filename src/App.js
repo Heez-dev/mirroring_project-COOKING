@@ -22,6 +22,10 @@ import RecipeView from "./pages/RecipeView";
 import RecipeWriteForm from "./pages/RecipeWriteForm";
 import RecipeEditForm from "./pages/RecipeEditForm";
 import Town from "./pages/Town";
+import TownMart from "./pages/TownMart";
+import TownMarket from "./pages/TownMarket";
+import TownShop from "./pages/TownShop";
+import TownClass from "./pages/TownClass";
 import Class from "./pages/Class";
 import User from "./pages/User";
 import Mypage_MyRecipe from "./pages/Mypage_MyRecipe";
@@ -29,6 +33,7 @@ import Mypage_RecipeBook from "./pages/Mypage_RecipeBook";
 
 import { DataProvider } from "./context/DataContext";
 import { RecipeProvider } from "./context/RecipeContext";
+import FindAddrComp from "./components/FindAddrComp";
 
 
 
@@ -38,7 +43,7 @@ function App() {
       <DataProvider>
         <RecipeProvider>
           <Routes>
-            
+            <Route path="/findaddr" element={<FindAddrComp/>}/>
 
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup/agreement" element={<SignUpAgreement />} />
@@ -59,7 +64,12 @@ function App() {
               <Route path="/recipe/:recipeid/:category/:title" element={<RecipeView/>}/>
               <Route path="/recipe/:recipeid/:category/:title/edit" element={<RecipeEditForm/>}/>
 
-              <Route path="/town" element={<Town />} />
+              <Route path="/town" element={<Town />}>
+                <Route path="/town/mart" element={<TownMart/>}/>
+                <Route path="/town/market" element={<TownMarket/>}/>
+                <Route path="/town/shop" element={<TownShop/>}/>
+                <Route path="/town/class" element={<TownClass/>}/>
+              </Route>
               <Route path="/class" element={<Class />} />
               <Route path="/mypage/:userID" element={<User/>}/>
               <Route path="/mypage/myrecipe/:userID" element={<Mypage_MyRecipe />} />

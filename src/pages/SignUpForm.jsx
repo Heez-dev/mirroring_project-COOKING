@@ -2,7 +2,10 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+import DaumPostcode from "react-daum-postcode";
+
 import DataContext from "../context/DataContext";
+
 
 
 export default function SignUpForm() {
@@ -34,6 +37,10 @@ export default function SignUpForm() {
   const [pwCheckFocustrue, setPwCheckFocustrue] = useState(false);
 
 
+  // 주소 찾기 버튼을 누르면 화면에 출력되는 모달창의 상태 관리
+  const [modalShow, setModalShow] = useState(false);
+
+
   // 아이디 정규식
   const idRegEx = /^[a-z0-9]{6,12}$/;
   // 패스워드 정규식
@@ -62,6 +69,36 @@ export default function SignUpForm() {
   month.fill(0);
   let date = new Array(31);
   date.fill(0);
+
+
+  // 주소찾기 버튼 클릭 시 모달창 화면에 출력
+  const findAddr = () => {
+    setModalShow(true);
+  }
+
+
+  // 주소찾기 모달창에서 주소 입력시 값 저장
+  const selectAddress = (data) => {
+    let address = data.address;
+    let extraAddress = '';
+    let fullAddress ='';
+
+    if (data.addressType === 'R') {
+      if (data.bname !== '') {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== '') {
+        extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
+      }
+      fullAddress = address + (extraAddress !== '' ? ` (${extraAddress})` : '');
+    }
+
+    console.log(data);
+    console.log("기본주소 : " + address)
+    console.log("상세주소 : " + extraAddress);
+    console.log("전체주소 : " + fullAddress);
+    console.log("우편번호 : " + data.zonecode);
+  }
 
 
   // 회원가입 메소드
@@ -275,7 +312,7 @@ export default function SignUpForm() {
                   <input type="text" required />
                 </li>
                 <li>
-                  <p className="confirmbtn">주소찾기</p>
+                  <p className="confirmbtn" onClick={findAddr}>주소찾기</p>
                 </li>
               </ul>
               <input
@@ -284,6 +321,14 @@ export default function SignUpForm() {
                 required
               />
             </div>
+            {
+              modalShow &&
+              <DaumPostcode
+              className='postmodal'
+              autoClose={false}
+              onComplete={selectAddress}
+            />
+            }
             <p>
               <label htmlFor="">휴대전화</label>
             </p>

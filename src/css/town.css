@@ -20,7 +20,7 @@
 
 .swiper-slide img {
   display: block;
-  width: 1500px;
+  width: 100%;
   height: 600px;
   margin: auto;
   object-fit: cover;
@@ -29,5 +29,137 @@
 
 #event_slider_swiper .swiper-pagination-bullet {
   background-color: #303030;
+}
+
+.town_community {
+  width: 1500px;
+  margin: 50px auto;
+}
+
+.town_community_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.town_community_title h3 {
+  font-size: 2rem;
+}
+
+.town_community_title button {
+  cursor: pointer;
+  width: 100px;
+  height: 35px;
+  border-radius: 60px;
+  border: 0;
+  background-color: #F27E65;
+  color: #F2EEEC;
+}
+
+.town_community_list {
+  list-style: none;
+  margin: 15px 0;
+  border-top: 2px solid #303030;
+  border-bottom: 2px solid #303030;
+  padding-bottom: 30px;
+}
+
+.town_community_boardtitle, 
+.town_community_board {
+  padding-top: 30px;
+  display: grid;
+  grid-template-columns: 5% 60% 12% 15% 8%;
+  text-align: center;
+}
+
+.town_community_boardtitle span {
+  color: #b1b1b1;
+}
+
+.town_community_board span {
+  padding-top: 2px;
+}
+
+.town_community_board .boardtitle {
+  cursor: pointer;
+}
+
+.town_community_board .boardlike {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.town_community_board .boardlikeicon {
+  background-image: url(../img/icon/like.png);
+  width: 15px;
+  height: 15px;
+  background-size: cover;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.topmenubar {
+  width: 100%;
+  padding: 70px 0;
+  background-color: #EDDED7;
+}
+
+.town_btns {
+  width: 700px;
+  height: 60px;
+  margin: auto;
+  border-radius: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.town_btn {
+  display: block;
+  width: 25%;
+  height: 60px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.town_btn a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  border: 0;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 23px;
+  font-size: 1.1rem;
+}
+
+.town_btn_active {
+  background-color: #F27E65;
+  color: white;
+}
+
+.town_btn_inactive {
+  background-color: white;
+  color: #303030;
+}
+
+.mapwrap {
+  width: 100%;
+  background-color: #EDDED7;
+  box-sizing: border-box;
+  padding-bottom: 100px;
+}
+
+#mapMart, #mapMarket, #mapShop, #mapClass {
+  width: 1500px;
+  height: 570px;
+  margin: auto;
+  background-color: #EDDED7;
 }
 

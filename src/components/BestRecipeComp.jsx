@@ -61,7 +61,7 @@ export default function BestRecipeComp() {
             spaceBetween: 20,
           },
         }}
-        navigation={true}
+        navigation={false}
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper best_recipelist"
         id='bestRecipeSwiperId'

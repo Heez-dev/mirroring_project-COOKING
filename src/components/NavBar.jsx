@@ -15,7 +15,10 @@ export default function NavBar() {
 
 
   const logout = () => {
-    useraction.setUser.login(false);
+    useraction.setUser((prevUser)=>({
+      ...prevUser,
+      login: false
+    }));
   }
 
   return (
@@ -30,7 +33,7 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/town' className={({isActive})=>(isActive? "active" : "")}>
+            <NavLink to='/town/mart' className={({isActive})=>(isActive? "active" : "")}>
               <div className='nav_list'>우리동네</div>
             </NavLink>
           </li>
@@ -53,7 +56,13 @@ export default function NavBar() {
                   : (<NavLink to='/signin'>로그인</NavLink>)
                 }
               </li>
-              <li><NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink></li>
+              <li>
+                {
+                  userstate.user.login
+                  ? (<NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink>)
+                  : (<NavLink to={'/signup/agreement'}>회원가입</NavLink>)
+                }
+              </li>
               <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>마이레시피</NavLink></li>
               <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>레시피북</NavLink></li>
             </ul>
