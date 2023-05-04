@@ -75,7 +75,7 @@
   border-radius: 50px;
   background-color: #685144;
   border: 0;
-  color: #EDDED7;
+  color: #f1eae7;
   font-size: 1.6rem;
   cursor: pointer;
   margin: 7px 0;
@@ -84,12 +84,12 @@
 }
 
 .random_textandbtn .random_btn button:hover {
-  background-color: #F27E65;
+  background-color: #00A82F;
   transition: all 0.3s;
 }
 
 .random_textandbtn .random_btn button.active {
-  background-color: #F27E65;
+  background-color: #00A82F;
   transition: all 0.3s;
 }
 
@@ -115,7 +115,6 @@
   align-items: center;
   padding: 0 50px;
   margin-top: 30px;
-  margin-bottom: 80px;
 }
 
 .searchandwrite .search_bar {
@@ -134,7 +133,7 @@
 .searchandwrite .search_bar_onscroll .search_input {
   width: 100%;
   height: 60px;
-  background-color: #EDDED7;
+  background-color: #f1eae7;
   border-radius: 50px;
   border: 0;
   font-size: 2rem;
@@ -287,8 +286,8 @@
   position: fixed;
   width: 100px;
   height: 100px;
+  top: 800px;
   right: 50px;
-  bottom: 150px;
   border: 0;
   border-radius: 50%;
   background-color: #EDDED7;
@@ -321,11 +320,69 @@
 
 /* BestRecipe 컴포넌트 */
 .mainpage .best_recipe_wrap {
-  margin-top: 0;
+  margin-top: 0px;
 }
 
 .mainpage .best_recipe_wrap .best_recipe_title {
-  margin-top: 0;
+  margin-top: 30;
 }
 
 
+
+/* MainEventsComp */
+.mainevents {
+  height: 1000px;
+  background-color: #f1eae7;
+  box-sizing: border-box;
+  padding: 125px 0;
+}
+
+.maineventsbox {
+  width: 1500px;
+  height: 750px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.maineventsbox .titleandbtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.maineventsbox .titleandbtn h3 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.maineventsbox .titleandbtn button {
+  color: #FDF7F7;
+  background-color: #816759;
+  border-radius: 50px;
+  border: 0;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.main_events_imglist {
+  height: 680px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.maineventsbox img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 40px;
+}
+
+.main_town_events {
+  width: 46%;
+}
+
+.main_class_events {
+  width: 46%;
+}

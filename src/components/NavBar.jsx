@@ -43,29 +43,28 @@ export default function NavBar() {
             </NavLink>
           </li>
           <li className='user_icon_wrap'>
-            <NavLink to={`/mypage/myrecipe/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>
+            <NavLink 
+              to={
+                userstate.user.login 
+                ? `/mypage/${userstate.user.userID}`
+                : '/signin'
+              } 
+              className={({isActive})=>(isActive? "active" : "")}
+            >
               <div className='user_icon'>
                 <div className={`${location.pathname.includes('/mypage') ? 'active' : ''}`}></div>
               </div>
             </NavLink>
-            <ul className='nav_sub_list'>
-              <li>
-                {
-                  userstate.user.login
-                  ? (<NavLink to='/' onClick={logout}>로그아웃</NavLink>)
-                  : (<NavLink to='/signin'>로그인</NavLink>)
-                }
-              </li>
-              <li>
-                {
-                  userstate.user.login
-                  ? (<NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink>)
-                  : (<NavLink to={'/signup/agreement'}>회원가입</NavLink>)
-                }
-              </li>
-              <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>마이레시피</NavLink></li>
-              <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>레시피북</NavLink></li>
-            </ul>
+            {
+              userstate.user.login &&
+              (<ul className='nav_sub_list'>
+                <li><NavLink to='/' onClick={logout}>로그아웃</NavLink></li>
+                <li><NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink></li>
+                <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>마이레시피</NavLink></li>
+                <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>레시피북</NavLink></li>
+              </ul>)
+            }
+            
           </li>
         </ul>
       </div>

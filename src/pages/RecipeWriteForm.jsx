@@ -93,6 +93,9 @@ export default function RecipeWriteForm() {
   
 
 
+  useEffect(()=>{window.scrollTo({top: 0})},[]);
+
+
 
   return (
     <div className='recipe_write_form_wrap'>

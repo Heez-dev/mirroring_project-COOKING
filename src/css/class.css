@@ -1,0 +1,153 @@
+/* 원데이 클래스 */
+.classes {
+  width: 1500px;
+  margin: 150px auto;
+}
+
+.regularclass {
+  margin-top: 150px;
+}
+
+.onedayclasstitle, 
+.regularclasstitle {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.classcardwrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.classcard {
+  width: 350px;
+  height: 580px;
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #ECECEC;
+}
+
+.img_wrap {
+  overflow: hidden;
+}
+
+.img_wrap img {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.img_wrap img:hover {
+  transform: scale(1.1);
+  transition: all 0.2s;
+}
+
+.text_wrap {
+  box-sizing: border-box;
+  padding: 15px 25px;
+}
+
+.text_wrap .place {
+  display: flex;
+  align-items: center;
+}
+
+.text_wrap .place_icon {
+  width: 21px;
+  height: 20px;
+  background-image: url('../img/icon/place_pin.png');
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+}
+
+.text_wrap .place_text {
+  font-size: 1.1rem;
+  padding-top: 6px;
+  color: #A4A4A4;
+}
+
+.text_wrap .titleanddetail {
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.text_wrap .title {
+  padding-top: 15px;
+}
+
+.text_wrap .detail {
+  padding-top: 5px;
+}
+
+.text_wrap .scoreandreview {
+  display: flex;
+  align-items: center;
+  padding: 5px 0 15px 0;
+  border-bottom: 2px solid #D9D9D9;
+}
+
+.text_wrap .review {
+  font-size: 0.9rem;
+  margin-left: 5px;
+  color: #A4A4A4;
+}
+
+.text_wrap .price {
+  font-size: 1.8rem;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.pagebtns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  margin: auto;
+  margin-top: 40px;
+}
+
+.pagebtns .prev {
+  background-image: url(../img/icon/prevbtn.png);
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.pagebtns .next {
+  background-image: url(../img/icon/nextbtn.png);
+  background-size: cover;
+  width: 15px;
+  height: 15px;
+  border: 0;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.pagebtns .numbers {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+}
+
+.pagebtns .number {
+  border: 0;
+  background-color: #D9D9D9;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.pagebtns .number.btn1 {
+  background-color: #303030;
+  color: white;
+}

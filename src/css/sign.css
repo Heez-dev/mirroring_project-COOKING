@@ -174,7 +174,7 @@ input[type="password"]:focus {
 }
 
 .user .confirmbtn,
-.user_address .confirmbtn,
+.user_address #confirmbtn,
 .user_phone .confirmbtn {
   display: inline-block;
   margin: 0;
@@ -189,6 +189,11 @@ input[type="password"]:focus {
   color: white;
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+.user_address #confirmbtn {
+  padding: 0;
+  border: 0;
 }
 
 .user input[type="password"] {
@@ -215,7 +220,7 @@ input[type="password"]:focus {
 }
 
 .user_id ul input,
-.user_address ul input,
+.user_address #sample3_postcode,
 .user_phone ul input {
   width: 250px;
   margin: 0;
@@ -225,6 +230,10 @@ input[type="password"]:focus {
 .user_address ul + input,
 .user_phone ul + input {
   margin-top: 5px;
+}
+
+.confirmVerificationCode {
+  margin-top: 3px;
 }
 
 .user_pw p {
@@ -286,8 +295,8 @@ input[type="password"]:focus {
   outline: 0;
 }
 
-.user_info select::-ms-expand {
-  display: none;
+.user_info option {
+
 }
 
 .user_info select.on {
@@ -316,6 +325,7 @@ input[type="password"]:focus {
 .user_gender .gender {
   width: 350px;
 }
+
 
 .sign_up_form form input[type="submit"] {
   margin-top: 70px;

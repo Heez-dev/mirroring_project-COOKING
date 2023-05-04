@@ -99,6 +99,9 @@ export default function RecipeWriteForm() {
   }
   
 
+  
+  useEffect(()=>{window.scrollTo({top: 0})},[]);
+
 
 
   return (

@@ -36,7 +36,17 @@ export default function TownCommunityComp() {
           ))
         }
       </ul>
-      <div className='page_btns'></div>
+      <div className='pagebtns'>
+        <button className='prev'></button>
+        <div className='numbers'>
+          <button className='number btn1'>1</button>
+          <button className='number'>2</button>
+          <button className='number'>3</button>
+          <button className='number'>4</button>
+          <button className='number'>5</button>
+        </div>
+        <button className='next'></button>
+      </div>
     </div>
   )
 }

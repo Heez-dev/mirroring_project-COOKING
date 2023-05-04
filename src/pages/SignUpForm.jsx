@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import DaumPostcode from "react-daum-postcode";
 
 import DataContext from "../context/DataContext";
+import FindAddrComp from "../components/FindAddrComp";
 
 
 
@@ -37,8 +37,10 @@ export default function SignUpForm() {
   const [pwCheckFocustrue, setPwCheckFocustrue] = useState(false);
 
 
-  // 주소 찾기 버튼을 누르면 화면에 출력되는 모달창의 상태 관리
-  const [modalShow, setModalShow] = useState(false);
+  // 인증번호를 생성하기 위한 useState
+  const[randomNum,setRandomNum] = useState(null)
+  // 인증번호 확인을 위한 useState
+  const [inputRandomNum, setInputRandomNum] = useState();
 
 
   // 아이디 정규식
@@ -71,34 +73,14 @@ export default function SignUpForm() {
   date.fill(0);
 
 
-  // 주소찾기 버튼 클릭 시 모달창 화면에 출력
-  const findAddr = () => {
-    setModalShow(true);
+  // 인증번호 받기 버튼 메소드
+  // 1. 랜덤으로 6개의 숫자 생성
+  // 2. 인증번호 입력 칸과 인증번호 확인 버튼 생성
+  // 3. alert로 랜덤으로 생성된 6개 숫자를 보여줌
+  const getVerificationCode = () => {
+    setRandomNum(String(Math.floor(Math.random()*1000000)).padStart(6, "0"));
   }
 
-
-  // 주소찾기 모달창에서 주소 입력시 값 저장
-  const selectAddress = (data) => {
-    let address = data.address;
-    let extraAddress = '';
-    let fullAddress ='';
-
-    if (data.addressType === 'R') {
-      if (data.bname !== '') {
-        extraAddress += data.bname;
-      }
-      if (data.buildingName !== '') {
-        extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
-      }
-      fullAddress = address + (extraAddress !== '' ? ` (${extraAddress})` : '');
-    }
-
-    console.log(data);
-    console.log("기본주소 : " + address)
-    console.log("상세주소 : " + extraAddress);
-    console.log("전체주소 : " + fullAddress);
-    console.log("우편번호 : " + data.zonecode);
-  }
 
 
   // 회원가입 메소드
@@ -132,6 +114,15 @@ export default function SignUpForm() {
       alert("비밀번호가 일치하지 않습니다")
     } 
   };
+
+
+
+
+  useEffect(()=>{
+    if (randomNum) {alert(randomNum);}
+  },[randomNum]);
+
+
 
 
   return (
@@ -307,49 +298,49 @@ export default function SignUpForm() {
               <label htmlFor="">주소</label>
             </p>
             <div className="user_address">
-              <ul>
-                <li>
-                  <input type="text" required />
-                </li>
-                <li>
-                  <p className="confirmbtn" onClick={findAddr}>주소찾기</p>
-                </li>
-              </ul>
-              <input
-                type="text"
-                placeholder="상세주소를 입력해 주세요"
-                required
-              />
+              <FindAddrComp setUserAddress={setUserAddress}/>
             </div>
-            {
-              modalShow &&
-              <DaumPostcode
-              className='postmodal'
-              autoClose={false}
-              onComplete={selectAddress}
-            />
-            }
             <p>
               <label htmlFor="">휴대전화</label>
             </p>
             <div className="user_phone">
               <ul>
                 <li>
-                  <input type="text" required />
+                  <input 
+                    type="text" 
+                    placeholder="숫자만 입력해 주세요" 
+                    maxLength="11" 
+                    onChange={(e)=>{setUserPhone(e.target.value)}}
+                    required
+                  />
                 </li>
                 <li>
-                  <p className="confirmbtn">인증번호 받기</p>
+                  <p id="getVerificationCode" className="confirmbtn" onClick={getVerificationCode}>인증번호 받기</p>
                 </li>
               </ul>
-              <input
-                type="text"
-                placeholder="인증번호를 입력해 주세요"
-                required
-              />
+              {
+                randomNum && (
+                  <input
+                    type="text"
+                    placeholder="인증번호를 입력해 주세요"
+                    onChange={(e)=>{setInputRandomNum(e.target.value)}}
+                    required
+                  />
+                )
+              }
+              
             </div>
-            <span className="hidden">
-              인증번호를 입력하면 가입하기 버튼이 활성화됩니다
-            </span>
+            {
+              randomNum 
+              ? ''
+              : (<span className="hidden">인증번호를 입력하면 가입하기 버튼이 활성화됩니다</span>)
+            }
+            {
+              randomNum &&
+              (randomNum === inputRandomNum 
+              ? (<span style={{color: "#00A82F"}}>인증번호가 일치합니다</span>)
+              : (<span>인증번호가 일치하지 않습니다</span>))
+            }
           </div>
         </div>
         <input type="submit" value="가입하기" />

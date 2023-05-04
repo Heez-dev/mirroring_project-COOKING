@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import RecipeContext from '../context/RecipeContext';
 import ScrapBtnComp from '../components/ScrapBtnComp';
@@ -113,6 +113,8 @@ export default function RecipeView() {
     }
   }
   
+
+  useEffect(()=>{window.scrollTo({top: 0})},[]);
 
   
   return (

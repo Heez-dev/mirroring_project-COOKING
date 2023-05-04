@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import RandomRecipe from '../components/RandomRecipe'
 import SearchWrite from '../components/SearchWrite'
 import BestRecipeComp from '../components/BestRecipeComp'
-import MainEvents from '../components/MainEvents'
+import MainEventsComp from '../components/MainEventsComp'
 
-import DataContext from '../context/DataContext'
+
 import TopBtnComp from '../components/TopBtnComp'
 
 
 export default function Main() {
-  const {userstate} = useContext(DataContext);
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -28,7 +27,7 @@ export default function Main() {
       <SearchWrite scrollPosition={scrollPosition}/>
       <TopBtnComp/>
       <BestRecipeComp/>
-      <MainEvents/>
+      <MainEventsComp/>
     </div>
   )
 }

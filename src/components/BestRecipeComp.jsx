@@ -40,7 +40,7 @@ export default function BestRecipeComp() {
         slidesPerView={1}
         spaceBetween={10}
         autoplay={{
-          delay: 1500,
+          delay: 1000,
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }}
@@ -69,26 +69,28 @@ export default function BestRecipeComp() {
         <div className='best_recipe_wrap'>
           {
             bestRecipelist.map(({ recipeid, category, subtitle, title, userID, writetime, img, Lod, time, servings, ingredient, content, scrap }, index)=>(
-              <SwiperSlide className='best_recipe' key={recipeid}>
-                <Link to={`/recipe/${recipeid}/${category}/${title}`}>
-                  <div className='best_card'>
-                    <div className='best_img_wrap'>
-                      
-                        <div className='best_img' style={{backgroundImage: `url(${img})`}}></div>
-                      
+              <SwiperSlide key={recipeid}>
+                <div className='best_recipe'>
+                  <Link to={`/recipe/${recipeid}/${category}/${title}`}>
+                    <div className='best_card'>
+                      <div className='best_img_wrap'>
+                        
+                          <div className='best_img' style={{backgroundImage: `url(${img})`}}></div>
+                        
+                      </div>
+                      <div className='best_ranking_wrap'>
+                        <h4 className='best_ranking'>{String(index + 1).padStart(2,"0")}</h4>
+                      </div>
+                      <h4 className='best_subtitle'>{subtitle}</h4>
+                      <h3 className='best_title'>{title}</h3>
+                      <div className='recipecard_time_wrap'>
+                        <div className='recipecard_time_icon'></div>
+                        <span className='recipecard_time'>{time}</span>
+                      </div>
                     </div>
-                    <div className='best_ranking_wrap'>
-                      <h4 className='best_ranking'>{String(index + 1).padStart(2,"0")}</h4>
-                    </div>
-                    <h4 className='best_subtitle'>{subtitle}</h4>
-                    <h3 className='best_title'>{title}</h3>
-                    <div className='recipecard_time_wrap'>
-                      <div className='recipecard_time_icon'></div>
-                      <span className='recipecard_time'>{time}</span>
-                    </div>
-                  </div>
-                </Link>
-                <ScrapBtnComp recipe={bestRecipelist[index]}/>
+                  </Link>
+                  <ScrapBtnComp recipe={bestRecipelist[index]}/>
+                </div>
               </SwiperSlide>
             ))
         }

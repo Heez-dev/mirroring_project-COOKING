@@ -16,7 +16,7 @@ export default function RandomRecipe() {
   const randomValueFromArray = (array, category) => {
     const random = Math.floor(Math.random() * array.length);
     setSelectedRecipe(array[random]);
-    setActiveButton(category);
+    setActiveButton(array === main ? 'main' : array === side ? 'side' : 'soup');
   };
 
   useEffect(()=>{

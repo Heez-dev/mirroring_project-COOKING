@@ -6,6 +6,7 @@ import "./css/main.css"
 import "./css/sign.css";
 import "./css/recipe.css";
 import "./css/town.css"
+import "./css/class.css"
 
 import SignIn from "./pages/SignIn";
 import SignUpAgreement from "./pages/SignUpAgreement";
