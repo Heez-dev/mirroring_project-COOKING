@@ -60,8 +60,8 @@ export default function NavBar() {
               (<ul className='nav_sub_list'>
                 <li><NavLink to='/' onClick={logout}>로그아웃</NavLink></li>
                 <li><NavLink to={`/mypage/${userstate.user.userID}`}>회원정보</NavLink></li>
-                <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>마이레시피</NavLink></li>
-                <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`} className={({isActive})=>(isActive? "active" : "")}>레시피북</NavLink></li>
+                <li><NavLink to={`/mypage/myrecipe/${userstate.user.userID}`}>마이레시피</NavLink></li>
+                <li><NavLink to={`/mypage/recipebook/${userstate.user.userID}`}>레시피북</NavLink></li>
               </ul>)
             }
             

@@ -7,6 +7,7 @@ import "./css/sign.css";
 import "./css/recipe.css";
 import "./css/town.css"
 import "./css/class.css"
+import "./css/mypage.css"
 
 import SignIn from "./pages/SignIn";
 import SignUpAgreement from "./pages/SignUpAgreement";
@@ -28,7 +29,7 @@ import TownMarket from "./pages/TownMarket";
 import TownShop from "./pages/TownShop";
 import TownClass from "./pages/TownClass";
 import Class from "./pages/Class";
-import User from "./pages/User";
+import Mypage from "./pages/Mypage";
 import Mypage_MyRecipe from "./pages/Mypage_MyRecipe";
 import Mypage_RecipeBook from "./pages/Mypage_RecipeBook";
 
@@ -72,7 +73,7 @@ function App() {
                 <Route path="/town/class" element={<TownClass/>}/>
               </Route>
               <Route path="/class" element={<Class />} />
-              <Route path="/mypage/:userID" element={<User/>}/>
+              <Route path="/mypage/:userID" element={<Mypage/>}/>
               <Route path="/mypage/myrecipe/:userID" element={<Mypage_MyRecipe />} />
               <Route path="/mypage/recipebook/:userID" element={<Mypage_RecipeBook />} />
             </Route>
