@@ -87,7 +87,7 @@ export default function FindAddrComp({setUserAddress}) {
         <button onClick={sample3ExecDaumPostcode} id='confirmbtn'>우편번호 찾기</button>
       </ul>
       <input type="text" id="sample3_address" placeholder="주소" required/>
-      <input type="text" id="sample3_detailAddress" placeholder="상세주소" required/>
+      <input type="text" id="sample3_detailAddress" placeholder="상세주소" required style={{marginTop:"5px"}}/>
 
       <div 
         id="wrap" 

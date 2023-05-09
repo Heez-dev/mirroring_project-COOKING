@@ -284,52 +284,51 @@ export default function SignUpForm() {
               <option value="남">남</option>
               <option value="여">여</option>
             </select>
-            <p>
-              <label htmlFor="">이메일</label>
-            </p>
-            <input
-              type="email"
-              required
-              onChange={(e) => {
-                setUserEmail(e.target.value);
-              }}
-            />
-            <p>
-              <label htmlFor="">주소</label>
-            </p>
-            <div className="user_address">
-              <FindAddrComp setUserAddress={setUserAddress}/>
-            </div>
-            <p>
-              <label htmlFor="">휴대전화</label>
-            </p>
-            <div className="user_phone">
-              <ul>
-                <li>
-                  <input 
-                    type="text" 
-                    placeholder="숫자만 입력해 주세요" 
-                    maxLength="11" 
-                    onChange={(e)=>{setUserPhone(e.target.value)}}
-                    required
-                  />
-                </li>
-                <li>
-                  <p id="getVerificationCode" className="confirmbtn" onClick={getVerificationCode}>인증번호 받기</p>
-                </li>
-              </ul>
-              {
-                randomNum && (
-                  <input
-                    type="text"
-                    placeholder="인증번호를 입력해 주세요"
-                    onChange={(e)=>{setInputRandomNum(e.target.value)}}
-                    required
-                  />
-                )
-              }
-              
-            </div>
+          </div>
+          <p>
+            <label htmlFor="">이메일</label>
+          </p>
+          <input
+            type="email"
+            required
+            onChange={(e) => {
+              setUserEmail(e.target.value);
+            }}
+          />
+          <p>
+            <label htmlFor="">주소</label>
+          </p>
+          <div className="user_address">
+            <FindAddrComp setUserAddress={setUserAddress}/>
+          </div>
+          <p>
+            <label htmlFor="">휴대전화</label>
+          </p>
+          <div className="user_phone">
+            <ul>
+              <li>
+                <input 
+                  type="text" 
+                  placeholder="숫자만 입력해 주세요" 
+                  maxLength="11" 
+                  onChange={(e)=>{setUserPhone(e.target.value)}}
+                  required
+                />
+              </li>
+              <li>
+                <p id="getVerificationCode" className="confirmbtn" onClick={getVerificationCode}>인증번호 받기</p>
+              </li>
+            </ul>
+            {
+              randomNum && (
+                <input
+                  type="text"
+                  placeholder="인증번호를 입력해 주세요"
+                  onChange={(e)=>{setInputRandomNum(e.target.value)}}
+                  required
+                />
+              )
+            }
             {
               randomNum 
               ? ''

@@ -26,7 +26,6 @@ input[type="submit"] {
   border: 1px solid #a4a4a4;
   padding: 0 20px;
   box-sizing: border-box;
-  margin-bottom: 15px;
   font-size: 0.9rem;
   cursor: pointer;
 }
@@ -295,9 +294,6 @@ input[type="password"]:focus {
   outline: 0;
 }
 
-.user_info option {
-
-}
 
 .user_info select.on {
   outline: 0;

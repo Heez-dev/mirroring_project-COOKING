@@ -38,6 +38,7 @@ export default function SignIn() {
           placeholder='아이디를 입력해 주세요'
           required
           onChange={(e)=>{setUserID(e.target.value);}}
+          style={{marginBottom:"10px"}}
         />
         <input 
           type="password"
