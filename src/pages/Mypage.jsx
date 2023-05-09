@@ -86,31 +86,33 @@ export default function Mypage() {
   const onEditUser = (e) => {
     // submit할 때 새로고침 되는 것 prevenet
     e.preventDefault();
-    if ((isValidPw===true) && (isValidPwCheck===true)) {
-      // 전달할 user 객체 만들기
-      const newUser = {
-        ...userstate.user,
-        userID: userID,
-        userPW: userPW,
-        userName: userName,
-        userBirth: `${YYYY}-${MM}-${DD}`,
-        userGender: userGender,
-        userEmail: userEmail,
-        userAddress: userAddress,
-        userPhone: userPhone,
-        login: true,
-      };
-      // 이 user를 set 메소드로 수정
-      useraction.setUser(newUser);
-      // 메인페이지로 이동
-      setShowUserEdit(false);
-      setShowUserInfo(true);
-      console.log(newUser);
-    } else if (isValidPw===false) {
-      alert("비밀번호를 확인해 주세요");
-    } else if(isValidPwCheck===false) {
-      alert("비밀번호가 일치하지 않습니다")
-    } 
+    if (window.confirm('정말로 수정하시겠습니까?')) {
+      if ((isValidPw===true) && (isValidPwCheck===true)) {
+        // 전달할 user 객체 만들기
+        const newUser = {
+          ...userstate.user,
+          userID: userID,
+          userPW: userPW,
+          userName: userName,
+          userBirth: `${YYYY}-${MM}-${DD}`,
+          userGender: userGender,
+          userEmail: userEmail,
+          userAddress: userAddress,
+          userPhone: userPhone,
+          login: true,
+        };
+        // 이 user를 set 메소드로 수정
+        useraction.setUser(newUser);
+        // 메인페이지로 이동
+        setShowUserEdit(false);
+        setShowUserInfo(true);
+        console.log(newUser);
+      } else if (isValidPw===false) {
+        alert("비밀번호를 확인해 주세요");
+      } else if(isValidPwCheck===false) {
+        alert("비밀번호가 일치하지 않습니다")
+      } 
+    }
   };
 
   const cancelEdit = () => {

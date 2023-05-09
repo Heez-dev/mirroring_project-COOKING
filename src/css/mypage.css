@@ -117,6 +117,7 @@
   width: 350px;
   border-radius: 13px;
   margin-bottom: 100px;
+  cursor: pointer;
 }
 
 /* Mypage_MyRecipe, Mypage_RecipeBook */
