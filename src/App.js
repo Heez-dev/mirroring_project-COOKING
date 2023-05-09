@@ -35,7 +35,6 @@ import Mypage_RecipeBook from "./pages/Mypage_RecipeBook";
 
 import { DataProvider } from "./context/DataContext";
 import { RecipeProvider } from "./context/RecipeContext";
-import FindAddrComp from "./components/FindAddrComp";
 
 
 
@@ -45,7 +44,7 @@ function App() {
       <DataProvider>
         <RecipeProvider>
           <Routes>
-            <Route path="/findaddr" element={<FindAddrComp/>}/>
+
 
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup/agreement" element={<SignUpAgreement />} />

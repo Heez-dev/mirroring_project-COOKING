@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import TownEventSliderComp from '../components/TownEventSliderComp';
 import TownCommunityComp from '../components/TownCommunityComp';
-import TownMapComp from '../components/TownMapComp';
 import TownMapMenuBar from '../components/TownMapMenuBar';
 import { Outlet } from 'react-router-dom';
+import TopBtnComp from '../components/TopBtnComp';
 
 
 export default function Town() {
@@ -12,6 +12,7 @@ export default function Town() {
   return (
     <div className='town_page'>
       <TownEventSliderComp/>
+      <TopBtnComp/>
       <TownCommunityComp/>
       <TownMapMenuBar/>
       <Outlet/>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Outlet, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import DataContext from '../context/DataContext';
 import FindAddrComp from '../components/FindAddrComp';

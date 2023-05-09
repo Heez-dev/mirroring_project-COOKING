@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 
 import BestRecipeComp from '../components/BestRecipeComp'
 import RecipeMenuBar from '../components/RecipeMenuBar'
+import TopBtnComp from '../components/TopBtnComp';
 
 
 
@@ -13,6 +14,7 @@ export default function Recipe() {
     <div>
       <main>
         <BestRecipeComp/>
+        <TopBtnComp/>
         <RecipeMenuBar/>
         <Outlet/>
       </main>

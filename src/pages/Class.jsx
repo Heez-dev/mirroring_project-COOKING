@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import ClassEventSliderComp from '../components/ClassEventSliderComp';
 import { FaStar } from 'react-icons/fa';
+import TopBtnComp from '../components/TopBtnComp';
 
 
 export default function Class() {
@@ -96,6 +97,7 @@ export default function Class() {
   return (
     <div>
       <ClassEventSliderComp/>
+      <TopBtnComp/>
 
       <div className='classes'>
 
