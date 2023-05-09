@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 
 
@@ -26,6 +26,9 @@ export default function SignIn() {
     navigate('/');
     console.log(`아이디 : ${newUser.userID}, 비밀번호 : ${newUser.userPW}, 로그인 : ${newUser.login}`);
   }
+
+  useEffect(()=>{window.scrollTo({top: 0})},[]);
+  
 
   return (
     <div className='sign_in'>

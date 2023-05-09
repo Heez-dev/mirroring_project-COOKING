@@ -12,7 +12,7 @@ const DataProvider = ({ children }) => {
     userBirth: "2000-01-01",
     userGender: "선택 안 함",
     userEmail: "cooking@naver.com",
-    userAddress: "부산 연제구 중앙대로 1001 1층",
+    userAddress: "부산광역시 해운대구 우동 1500",
     userPhone: "01012345678",
     login: true,
     scraplist: [],

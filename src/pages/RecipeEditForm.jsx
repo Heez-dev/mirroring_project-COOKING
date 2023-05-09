@@ -92,9 +92,15 @@ export default function RecipeWriteForm() {
       const editRecipelist = state.recipelist.map( (r) => (r.recipeid === curRecipe.recipeid ? editRecipe : r) )
       console.log(editRecipelist);
       action.setRecipelist(editRecipelist);
-      action.recipeidCount();
       navigate(`/recipe/${editRecipe.recipeid}/${editRecipe.category}/${editRecipe.title}`);
       console.log(state.recipeid);
+    }
+  }
+
+  const cancelEditRecipe = (e) => {
+    e.preventDefault();
+    if (window.confirm('정말로 취소하시겠습니까?')) {
+      navigate(`/recipe/${recipeid}/${category}/${title}`);
     }
   }
   
@@ -266,7 +272,10 @@ export default function RecipeWriteForm() {
           ></textarea>
         </div>  
 
-        <input type="submit" value="수정완료!" className='form_submitbtn'/>
+        <div className='editbtns'> 
+          <button onClick={cancelEditRecipe} className='cancelbtn'>취소</button>
+          <input type="submit" value="수정완료!" className='form_submitbtn'/>
+        </div>
 
       </form>
 

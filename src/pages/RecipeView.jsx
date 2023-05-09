@@ -55,7 +55,7 @@ export default function RecipeView() {
     e.preventDefault();
     if (user.login === false) {
       if (window.confirm("로그인이 필요합니다. 로그인 하시겠습니까?")) {
-        window.location.href = '/signin';
+        navigate('/signin')
       } else {
         return -1;
       }
@@ -87,7 +87,7 @@ export default function RecipeView() {
   const clickLike = (comment) => {
     if (user.login === false) {
       if (window.confirm("로그인이 필요합니다. 로그인 하시겠습니까?")) {
-        window.location.href = '/signin';
+        navigate('/signin')
       } else {
         return -1;
       }

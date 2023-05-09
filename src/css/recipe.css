@@ -147,11 +147,15 @@
   background-color: #EDDED7;
   border-radius: 50px;
   font-size: 0.9rem;
+  box-sizing: border-box;
 }
 
 .recipe_menu_inactive  {
   color: #816759;
   padding: 17px 44.516px;
+  height: inherit;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 .recipe_menu_active {
@@ -160,6 +164,8 @@
   color: #EDDED7;
   padding: 17px 44.516px;
   transition: all 0.3s;
+  height: 50px;
+  box-sizing: border-box;
 }
 
 
@@ -744,10 +750,32 @@
   color: #A4A4A4;
 }
 
-.recipe_write_form .form_submitbtn {
+.recipe_write_form .editbtns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 700px;
   margin: 100px auto;
+}
+
+.recipe_write_form .form_submitbtn {
+  margin: 0;
   font-size: 2rem;
   font-weight: bold;
+  width: 300px;
+}
+
+.recipe_write_form .cancelbtn {
+  margin: 0;
+  width: 300px;
+  height: 60px;
+  border: 0;
+  border-radius: 13px;
+  background-color: #aaaaaa;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 

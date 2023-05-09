@@ -16,8 +16,18 @@ export default function NavBar() {
 
   const logout = () => {
     useraction.setUser((prevUser)=>({
-      ...prevUser,
-      login: false
+      userID: "",
+      userPW: "",
+      userName: "",
+      userBirth: "",
+      userGender: "",
+      userEmail: "",
+      userAddress: "부산광역시 연제구 연산동 1000",
+      userPhone: "",
+      login: false,
+      scraplist: [],
+      likelist: [],
+      writelist:[]
     }));
   }
 
