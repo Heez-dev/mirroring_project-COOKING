@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/2023-project-cooking/static/css/main.46c8db49.css",
-    "main.js": "/2023-project-cooking/static/js/main.e8668f06.js",
+    "main.css": "/2023-project-cooking/static/css/main.60415d8e.css",
+    "main.js": "/2023-project-cooking/static/js/main.eeb54946.js",
     "static/js/787.ff044b56.chunk.js": "/2023-project-cooking/static/js/787.ff044b56.chunk.js",
     "static/media/town1.jpg": "/2023-project-cooking/static/media/town1.57387f42a4b9cda73a08.jpg",
     "static/media/town4.jpg": "/2023-project-cooking/static/media/town4.fb068ff3a7375ef20bbe.jpg",
@@ -13,12 +13,12 @@
     "static/media/class4.jpg": "/2023-project-cooking/static/media/class4.e7902cfedd6620480dd8.jpg",
     "static/media/logo_big.png": "/2023-project-cooking/static/media/logo_big.7f5525d025869c51c9be.png",
     "index.html": "/2023-project-cooking/index.html",
-    "main.46c8db49.css.map": "/2023-project-cooking/static/css/main.46c8db49.css.map",
-    "main.e8668f06.js.map": "/2023-project-cooking/static/js/main.e8668f06.js.map",
+    "main.60415d8e.css.map": "/2023-project-cooking/static/css/main.60415d8e.css.map",
+    "main.eeb54946.js.map": "/2023-project-cooking/static/js/main.eeb54946.js.map",
     "787.ff044b56.chunk.js.map": "/2023-project-cooking/static/js/787.ff044b56.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.46c8db49.css",
-    "static/js/main.e8668f06.js"
+    "static/css/main.60415d8e.css",
+    "static/js/main.eeb54946.js"
   ]
 }
