@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+**📂 Mirrored from old account**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Cooking 🍳
 
-## Available Scripts
+React 기반으로 제작한 요리 레시피 관리 애플리케이션입니다.
+레시피 등록, 수정, 삭제 및 조회 기능을 제공하며, UI/UX 학습과 상태 관리 연습을 위해 구현한 토이 프로젝트입니다.
 
-In the project directory, you can run:
+⚡ 이 프로젝트는 이전에 사용한 계정의 토이 프로젝트를 미러링(mirroring)하여 가져온 버전입니다.
 
-### `npm start`
+## 🔗 Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+👉 [배포 페이지 바로가기](https://cosch218.github.io/Project-cooking/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📌 주요 기능
 
-### `npm test`
+- 레시피 목록 조회
+- 레시피 등록 / 수정 / 삭제 (CRUD)
+- 재료와 조리 방법 상세 보기
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠 기술 스택
 
-### `npm run build`
+- 언어 / 프레임워크: `React`, `JavaScript(ES6+)`
+- 스타일링: `CSS`, `Styled-components`
+- 상태 관리: `React Hooks` (useState, useReducer)
+- 빌드 / 개발 환경: `Create React App`
+- 배포: `gh-pages`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 주요 폴더 구조 (src 기준)
+```plain
+src/
+ ├── components/       # 공통 UI 컴포넌트 (레시피 카드, 입력 폼 등)
+ ├── pages/            # 주요 페이지 (홈, 상세, 등록 등)
+ ├── hooks/            # 커스텀 훅
+ ├── utils/            # 유틸 함수
+ ├── App.jsx           # 라우팅 및 전체 화면 구성
+ └── index.js          # 앱 진입점, 렌더링
+```
